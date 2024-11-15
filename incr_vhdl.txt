@@ -1,0 +1,27 @@
+--Michael Lange, 301580599; Trevor Ruttan, 301580889; Rohin Gill, 301582525;
+
+--incr_port5
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+ENTITY incr_port5 is
+    PORT (
+        clk : in std_logic;
+        f : out unsigned(3 downto 0)
+    );
+END ENTITY incr_port5;
+
+ARCHITECTURE Behavioral of incr_port5 is
+    signal accumulator : unsigned(3 downto 0) := (others => '0');
+begin
+    process (clk)
+    begin
+        if rising_edge(clk) then
+            accumulator <= accumulator + 1; --inexplictly uses XOR and AND gates
+        end if;
+    end process;
+
+    f <= accumulator;
+END ARCHITECTURE Behavioral;

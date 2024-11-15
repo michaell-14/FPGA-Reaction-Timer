@@ -1,0 +1,63 @@
+--Michael Lange, 301580599; Trevor Ruttan, 301580889; Rohin Gill, 301582525;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+--count4
+
+entity Count4 is 
+
+	port(
+	
+			D : in std_logic_vector(3 downto 0);
+			load : in std_logic;
+			en : in std_logic;
+			clk_in1 : in std_logic;
+			Q : out unsigned(3 downto 0)
+			
+			);
+end entity Count4;
+
+architecture behavioral of Count4 is
+
+	--internal signals
+	signal incr_value : unsigned(3 downto 0);
+	signal accumulator : unsigned(3 downto 0) := (others => '0');
+	signal mux_out : unsigned(3 downto 0);
+	
+	
+	component incr_port5 
+		port (
+        clk : in std_logic;
+        f : out unsigned(3 downto 0)
+		);
+	end component;
+	
+	
+	begin
+	
+	increment : incr_port5
+		port map(
+				clk => clk_in1,
+				f => incr_value
+				);
+				
+	--mux stuff, decide between load or incrementing
+    process(clk_in1)
+    begin
+        if rising_edge(clk_in1) then
+            if load = '1' then
+                -- Load the value from D into accumulator
+                accumulator <= unsigned(D);
+            elsif en = '1' then
+                -- Increment the counter
+                accumulator <= incr_value;
+            end if;
+        end if;
+    end process;
+
+		
+	Q <= accumulator;
+	
+end behavioral;
