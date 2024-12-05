@@ -1,0 +1,197 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'clk_in'
+Slack : -6.032
+TNS   : -136.001
+
+Type  : Slow 1100mV 85C Model Setup 'KEY[0]'
+Slack : -4.403
+TNS   : -30.907
+
+Type  : Slow 1100mV 85C Model Setup 'current_state.DisplayP1'
+Slack : -2.843
+TNS   : -10.707
+
+Type  : Slow 1100mV 85C Model Setup 'PreScale:prescaler|counter[24]'
+Slack : -2.387
+TNS   : -24.793
+
+Type  : Slow 1100mV 85C Model Hold 'clk_in'
+Slack : -0.159
+TNS   : -0.159
+
+Type  : Slow 1100mV 85C Model Hold 'current_state.DisplayP1'
+Slack : 0.778
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'PreScale:prescaler|counter[24]'
+Slack : 0.797
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'KEY[0]'
+Slack : 0.844
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_in'
+Slack : -0.488
+TNS   : -13.443
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'PreScale:prescaler|counter[24]'
+Slack : -0.394
+TNS   : -8.613
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'KEY[0]'
+Slack : 0.350
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'current_state.DisplayP1'
+Slack : 0.408
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'clk_in'
+Slack : -5.792
+TNS   : -130.958
+
+Type  : Slow 1100mV 0C Model Setup 'KEY[0]'
+Slack : -4.180
+TNS   : -29.069
+
+Type  : Slow 1100mV 0C Model Setup 'current_state.DisplayP1'
+Slack : -2.686
+TNS   : -9.999
+
+Type  : Slow 1100mV 0C Model Setup 'PreScale:prescaler|counter[24]'
+Slack : -2.412
+TNS   : -24.747
+
+Type  : Slow 1100mV 0C Model Hold 'clk_in'
+Slack : 0.132
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'KEY[0]'
+Slack : 0.548
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'current_state.DisplayP1'
+Slack : 0.693
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'PreScale:prescaler|counter[24]'
+Slack : 0.729
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_in'
+Slack : -0.553
+TNS   : -14.661
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'PreScale:prescaler|counter[24]'
+Slack : -0.394
+TNS   : -8.408
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'KEY[0]'
+Slack : 0.303
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'current_state.DisplayP1'
+Slack : 0.399
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'clk_in'
+Slack : -3.810
+TNS   : -84.198
+
+Type  : Fast 1100mV 85C Model Setup 'KEY[0]'
+Slack : -3.360
+TNS   : -21.262
+
+Type  : Fast 1100mV 85C Model Setup 'current_state.DisplayP1'
+Slack : -1.564
+TNS   : -5.962
+
+Type  : Fast 1100mV 85C Model Setup 'PreScale:prescaler|counter[24]'
+Slack : -0.952
+TNS   : -9.884
+
+Type  : Fast 1100mV 85C Model Hold 'clk_in'
+Slack : -0.201
+TNS   : -0.201
+
+Type  : Fast 1100mV 85C Model Hold 'PreScale:prescaler|counter[24]'
+Slack : 0.347
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'current_state.DisplayP1'
+Slack : 0.623
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'KEY[0]'
+Slack : 0.635
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk_in'
+Slack : -0.590
+TNS   : -2.627
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'PreScale:prescaler|counter[24]'
+Slack : 0.033
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'KEY[0]'
+Slack : 0.067
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'current_state.DisplayP1'
+Slack : 0.434
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'clk_in'
+Slack : -3.174
+TNS   : -69.933
+
+Type  : Fast 1100mV 0C Model Setup 'KEY[0]'
+Slack : -2.749
+TNS   : -17.074
+
+Type  : Fast 1100mV 0C Model Setup 'current_state.DisplayP1'
+Slack : -1.379
+TNS   : -5.203
+
+Type  : Fast 1100mV 0C Model Setup 'PreScale:prescaler|counter[24]'
+Slack : -0.962
+TNS   : -9.378
+
+Type  : Fast 1100mV 0C Model Hold 'clk_in'
+Slack : 0.019
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'PreScale:prescaler|counter[24]'
+Slack : 0.316
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'KEY[0]'
+Slack : 0.405
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'current_state.DisplayP1'
+Slack : 0.543
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk_in'
+Slack : -0.582
+TNS   : -2.704
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'KEY[0]'
+Slack : 0.052
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'PreScale:prescaler|counter[24]'
+Slack : 0.062
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'current_state.DisplayP1'
+Slack : 0.445
+TNS   : 0.000
+
+------------------------------------------------------------

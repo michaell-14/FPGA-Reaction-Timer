@@ -1,0 +1,116 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity GameFSM is
+    port(
+        clk        : in STD_LOGIC;
+        reset      : in STD_LOGIC;
+        SW         : in STD_LOGIC_VECTOR(2 downto 0);
+        button_p1  : in STD_LOGIC;
+        button_p2  : in STD_LOGIC;
+        rand_num   : in STD_LOGIC_VECTOR(3 downto 0);
+        hex_disp   : out STD_LOGIC_VECTOR(3 downto 0);
+        winner_led : out STD_LOGIC_VECTOR(1 downto 0) -- 00: None, 01: P1, 10: P2, 11: Tie
+    );
+end GameFSM;
+
+architecture FSM of GameFSM is
+    type state_type is (Setup, WaitP1, P1Game, DisplayP1, WaitP2, P2Game, Compare, Winner);
+    signal state, next_state : state_type;
+
+    signal clk_prescale : STD_LOGIC; -- Slowed clock
+    signal time_p1, time_p2 : unsigned(23 downto 0) := (others => '0');
+    signal rand_num_reg : STD_LOGIC_VECTOR(3 downto 0);
+begin
+    -- Instantiate Prescaler
+    U1: entity work.PreScale
+        port map(Inclock => clk, SW => SW, Outclock => clk_prescale);
+
+    -- State Transition
+    process(clk, reset)
+    begin
+        if reset = '1' then
+            state <= Setup;
+        elsif rising_edge(clk) then
+            state <= next_state;
+        end if;
+    end process;
+
+    -- State Logic
+    process(state, button_p1, button_p2, rand_num, clk_prescale)
+    begin
+        case state is
+            when Setup =>
+                -- Setup random number and wait for Player 1
+                hex_disp <= rand_num;
+                if button_p1 = '1' then
+                    next_state <= WaitP1;
+                else
+                    next_state <= Setup;
+                end if;
+
+            when WaitP1 =>
+                if button_p1 = '1' then
+                    next_state <= P1Game;
+                else
+                    next_state <= WaitP1;
+                end if;
+
+            when P1Game =>
+                if clk_prescale = '1' then
+                    hex_disp <= rand_num;
+                end if;
+                -- Check button press
+                if button_p1 = '1' then
+                    time_p1 <= unsigned(rand_num) * to_unsigned(10, 24); -- Simulate time
+                    next_state <= DisplayP1;
+                end if;
+
+            when DisplayP1 =>
+                -- Show Player 1 time
+                hex_disp <= std_logic_vector(time_p1(3 downto 0));
+                if button_p2 = '1' then
+                    next_state <= WaitP2;
+                end if;
+
+            when WaitP2 =>
+                if button_p2 = '1' then
+                    next_state <= P2Game;
+                else
+                    next_state <= WaitP2;
+                end if;
+
+            when P2Game =>
+                if clk_prescale = '1' then
+                    hex_disp <= rand_num;
+                end if;
+                -- Check button press
+                if button_p2 = '1' then
+                    time_p2 <= unsigned(rand_num) * to_unsigned(10, 24); -- Simulate time
+                    next_state <= Compare;
+                end if;
+
+            when Compare =>
+                if time_p1 < time_p2 then
+                    winner_led <= "01"; -- Player 1 wins
+                elsif time_p1 > time_p2 then
+                    winner_led <= "10"; -- Player 2 wins
+                else
+                    winner_led <= "11"; -- Tie
+                end if;
+                next_state <= Winner;
+
+            when Winner =>
+                -- Wait for reset
+                if reset = '1' then
+                    next_state <= Setup;
+                else
+                    next_state <= Winner;
+                end if;
+
+            when others =>
+                next_state <= Setup;
+        end case;
+    end process;
+end FSM;

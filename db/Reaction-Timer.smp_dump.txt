@@ -1,0 +1,11 @@
+
+State Machine - |GameFSM|current_state
+Name current_state.Winner current_state.Compare current_state.P2Game current_state.WaitP2 current_state.DisplayP1 current_state.P1Game current_state.WaitP1 current_state.Setup 
+current_state.Setup 0 0 0 0 0 0 0 0 
+current_state.WaitP1 0 0 0 0 0 0 1 1 
+current_state.P1Game 0 0 0 0 0 1 0 1 
+current_state.DisplayP1 0 0 0 0 1 0 0 1 
+current_state.WaitP2 0 0 0 1 0 0 0 1 
+current_state.P2Game 0 0 1 0 0 0 0 1 
+current_state.Compare 0 1 0 0 0 0 0 1 
+current_state.Winner 1 0 0 0 0 0 0 1 
