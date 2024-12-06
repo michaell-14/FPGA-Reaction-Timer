@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Reaction-Timer
-Fri Dec  6 03:03:19 2024
+Fri Dec  6 03:41:59 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -10,7 +10,13 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Post-Synthesis Netlist Statistics for Top Partition
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -34,22 +40,27 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                 ;
-+-----------------------------+------------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Fri Dec  6 03:03:19 2024              ;
-; Quartus Prime Version       ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
-; Revision Name               ; Reaction-Timer                                 ;
-; Top-level Entity Name       ; SegDecoder                                     ;
-; Family                      ; Cyclone V                                      ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                      ;
-; Total registers             ; N/A until Partition Merge                      ;
-; Total pins                  ; N/A until Partition Merge                      ;
-; Total virtual pins          ; N/A until Partition Merge                      ;
-; Total block memory bits     ; N/A until Partition Merge                      ;
-; Total PLLs                  ; N/A until Partition Merge                      ;
-; Total DLLs                  ; N/A until Partition Merge                      ;
-+-----------------------------+------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Dec  6 03:41:59 2024          ;
+; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                   ; Reaction-Timer                                 ;
+; Top-level Entity Name           ; SegDecoder                                     ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 0                                              ;
+; Total pins                      ; 11                                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 0                                              ;
+; Total DSP Blocks                ; 0                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -155,13 +166,99 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                 ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                          ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
+; ../ENSC-252/lab3/SegDecoder.vhd  ; yes             ; User VHDL File  ; C:/Users/micha/OneDrive/Documents/GitHub/ENSC-252/lab3/SegDecoder.vhd ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary              ;
++---------------------------------------------+------------+
+; Resource                                    ; Usage      ;
++---------------------------------------------+------------+
+; Estimate of Logic utilization (ALMs needed) ; 4          ;
+;                                             ;            ;
+; Combinational ALUT usage for logic          ; 7          ;
+;     -- 7 input functions                    ; 0          ;
+;     -- 6 input functions                    ; 0          ;
+;     -- 5 input functions                    ; 0          ;
+;     -- 4 input functions                    ; 7          ;
+;     -- <=3 input functions                  ; 0          ;
+;                                             ;            ;
+; Dedicated logic registers                   ; 0          ;
+;                                             ;            ;
+; I/O pins                                    ; 11         ;
+;                                             ;            ;
+; Total DSP Blocks                            ; 0          ;
+;                                             ;            ;
+; Maximum fan-out node                        ; D[0]~input ;
+; Maximum fan-out                             ; 7          ;
+; Total fan-out                               ; 46         ;
+; Average fan-out                             ; 1.59       ;
++---------------------------------------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; |SegDecoder                ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 11   ; 0            ; |SegDecoder         ; SegDecoder  ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_lcell_comb     ; 8                           ;
+;     normal            ; 8                           ;
+;         1 data inputs ; 1                           ;
+;         4 data inputs ; 7                           ;
+; boundary_port         ; 11                          ;
+;                       ;                             ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.50                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Fri Dec  6 03:03:13 2024
+    Info: Processing started: Fri Dec  6 03:41:53 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Reaction-Timer -c Reaction-Timer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -179,30 +276,71 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
     Info (12022): Found design unit 1: SegDecoder-behavorial File: C:/Users/micha/OneDrive/Documents/GitHub/ENSC-252/lab3/SegDecoder.vhd Line: 12
     Info (12023): Found entity 1: SegDecoder File: C:/Users/micha/OneDrive/Documents/GitHub/ENSC-252/lab3/SegDecoder.vhd Line: 6
 Info (12021): Found 0 design units, including 0 entities, in source file toptest.vhd
-Error (10500): VHDL syntax error at TopTestGame.vhd(230) near text "port";  expecting "(", or "'", or "." File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 230
-Error (10500): VHDL syntax error at TopTestGame.vhd(230) near text ";";  expecting ":=", or "<=" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 230
-Error (10500): VHDL syntax error at TopTestGame.vhd(241) near text "port";  expecting "(", or "'", or "." File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 241
-Error (10500): VHDL syntax error at TopTestGame.vhd(241) near text ";";  expecting ":=", or "<=" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 241
-Error (10500): VHDL syntax error at TopTestGame.vhd(244) near text "port";  expecting "(", or "'", or "." File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 244
-Error (10500): VHDL syntax error at TopTestGame.vhd(244) near text ";";  expecting ":=", or "<=" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 244
-Error (10500): VHDL syntax error at TopTestGame.vhd(247) near text "port";  expecting "(", or "'", or "." File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 247
-Error (10500): VHDL syntax error at TopTestGame.vhd(247) near text ";";  expecting ":=", or "<=" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 247
-Error (10500): VHDL syntax error at TopTestGame.vhd(250) near text "port";  expecting "(", or "'", or "." File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 250
-Error (10500): VHDL syntax error at TopTestGame.vhd(250) near text ";";  expecting ":=", or "<=" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 250
-Error (10500): VHDL syntax error at TopTestGame.vhd(260) near text "port";  expecting "(", or "'", or "." File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 260
-Error (10500): VHDL syntax error at TopTestGame.vhd(260) near text ";";  expecting ":=", or "<=" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 260
-Error (10500): VHDL syntax error at TopTestGame.vhd(263) near text "port";  expecting "(", or "'", or "." File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 263
-Error (10500): VHDL syntax error at TopTestGame.vhd(263) near text ";";  expecting ":=", or "<=" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 263
-Error (10500): VHDL syntax error at TopTestGame.vhd(267) near text "port";  expecting "(", or "'", or "." File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 267
-Error (10500): VHDL syntax error at TopTestGame.vhd(267) near text ";";  expecting ":=", or "<=" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 267
-Error (10500): VHDL syntax error at TopTestGame.vhd(270) near text "port";  expecting "(", or "'", or "." File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 270
-Error (10500): VHDL syntax error at TopTestGame.vhd(270) near text ";";  expecting ":=", or "<=" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 270
-Error (10500): VHDL syntax error at TopTestGame.vhd(273) near text "port";  expecting "(", or "'", or "." File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 273
-Info (12021): Found 0 design units, including 0 entities, in source file toptestgame.vhd
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 19 errors, 1 warning
-    Error: Peak virtual memory: 4845 megabytes
-    Error: Processing ended: Fri Dec  6 03:03:19 2024
-    Error: Elapsed time: 00:00:06
-    Error: Total CPU time (on all processors): 00:00:08
+Info (12021): Found 2 design units, including 1 entities, in source file toptestgame.vhd
+    Info (12022): Found design unit 1: TopTestGame-Behavioral File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 21
+    Info (12023): Found entity 1: TopTestGame File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 5
+Info (12127): Elaborating entity "SegDecoder" for the top level hierarchy
+Info (286030): Timing-Driven Synthesis is running
+Warning (20013): Ignored 24 assignments for entity "DE10_Standard" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity DE10_Standard -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE10_Standard -section_id Top was ignored
+Warning (20013): Ignored 24 assignments for entity "de10" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity de10 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity de10 -section_id Top was ignored
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 18 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 7 output pins
+    Info (21061): Implemented 7 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 51 warnings
+    Info: Peak virtual memory: 4877 megabytes
+    Info: Processing ended: Fri Dec  6 03:41:59 2024
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:09
 
 

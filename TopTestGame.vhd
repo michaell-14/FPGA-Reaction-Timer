@@ -136,18 +136,18 @@ begin
 --   -- HEX3 <= "1111111"; -- Display nothing
 --	 HEX1 <= "1111111";
 	 
-	 reset_game <= KEY(3);
-	 reset_turn <= KEY(2);
+	 reset_game <= not KEY(3);
+	 reset_turn <= not KEY(2);
 	 
 	 
 	 ----------STATE MACHINE----------------------
 	
 	-- FSM Process to state change
-    process(prescaled_clk_A(3), reset_game) --had CLOCK_50 before
+    process(CLOCK_50, reset_game) --had CLOCK_50 before
     begin
         if reset_game = '1' then
             current_state <= Setup; -- Reset to Setup state
-        elsif rising_edge(prescaled_clk_A(3)) then
+        elsif rising_edge(CLOCK_50) then
             current_state <= next_state; -- Update state on clock cycle
         end if;	
     end process;
@@ -197,10 +197,10 @@ begin
 						end if;
 
 		when Compare =>
-						if (latched_clk_A_p2 + latched_clk_B_p2) > (latched_clk_A_p1 + latched_clk_B_p1) then
+						if (to_unsigned(to_integer(unsigned(latched_clk_A_p2)), 32) + to_unsigned(to_integer(unsigned(latched_clk_B_p2)), 32)) > (to_unsigned(to_integer(unsigned(latched_clk_A_p1)), 32) + to_unsigned(to_integer(unsigned(latched_clk_B_p1)), 32)) then
 							win <= "10"; -- P2 Win
 							next_state <= Winner;
-						elsif (latched_clk_A_p2 + latched_clk_B_p2) < (latched_clk_A_p1 + latched_clk_B_p1) then
+						elsif (to_unsigned(to_integer(unsigned(latched_clk_A_p2)), 32) + to_unsigned(to_integer(unsigned(latched_clk_B_p2)), 32)) < (to_unsigned(to_integer(unsigned(latched_clk_A_p1)), 32) + to_unsigned(to_integer(unsigned(latched_clk_B_p1)), 32)) then
 							win <= "01"; -- P1 Win
 							next_state <= Winner;
 						else
@@ -220,108 +220,92 @@ begin
 		end case;
 	end process;
 	
-	--outputs to hex
-	process(current_state)
-	begin
-		case current_state is
-			when Setup => 
-							--HEX0
-							seg_decoder0 : SegDecoder
-								port map(D => rand_num, Y => HEX0);
-							
-							HEX1 <= "1111111";
-							HEX4 <= "1111111";
-							HEX5 <= "1111111";
-							
-							HEX2 <= "1111001"; --1
-							HEX3 <= "0001100";--P
-			
-			when P1Game =>
-							seg_decoder5: SegDecoder
-								port map(D => prescaled_clk_A, Y => HEX5);
-	
-							seg_decoder4: SegDecoder
-								port map(D => prescaled_clk_B, Y => HEX4);
-							
-							seg_decoder3: SegDecoder
-								port map(D => latched_clk_A, Y => HEX3);
+-- Outputs to hex
+-- Instantiate SegDecoder components outside the process block
 
-							seg_decoder2: SegDecoder
-								port map(D => latched_clk_B, Y => HEX2);
-							
-							HEX0 <= "1111001"; --1
-							HEX1 <= "0001100";--P
-							
-			when DisplayP1 => 
-								HEX4 <= "1111001"; --1
-								HEX5 <= "0001100"; --p
-								
-								seg_decoder_a: SegDecoder
-									port map(D => latched_clk_A, Y => HEX1);
+-- SegDecoder instances
+seg_decoder0 : SegDecoder
+    port map (D => rand_num, Y => HEX0);
 
-								seg_decoder_b: SegDecoder
-									port map(D => latched_clk_B, Y => HEX0);
-								
-			when P2Game =>
-							seg_decoder5: SegDecoder
-								port map(D => prescaled_clk_A, Y => HEX5);
-		
-							seg_decoder4: SegDecoder
-								port map(D => prescaled_clk_B, Y => HEX4);
-							
-							seg_decoder3: SegDecoder
-								port map(D => latched_clk_A, Y => HEX3);
+seg_decoder1 : SegDecoder
+    port map (D => prescaled_clk_A, Y => HEX5);
 
-							seg_decoder2: SegDecoder
-								port map(D => latched_clk_B, Y => HEX2);
-							
-							HEX0 <= "0100100"; --2
-							HEX1 <= "0001100";--P
-							
-			when Compare =>
-							HEX0 <= "000100";
-							HEX1 <= "000100";
-							HEX2 <= "000100";
-							HEX3 <= "000100";
-							HEX4 <= "000100";
-							HEX5 <= "000100";
-			
-			when Winner =>
-							if win = "01" then
-								HEX0 <="111111";
-								HEX1 <="111111";
-								HEX4 <="111111";
-								HEX5 <="111111";
-								
-								HEX2 <= "1111001"; --1
-								HEX3 <= "0001100"; --p
-								
-							elsif win = "10" then
-								HEX0 <="111111";
-								HEX1 <="111111";
-								HEX4 <="111111";
-								HEX5 <="111111";
-								
-								HEX2 <= "0100100"; --2
-								HEX3 <= "0001100"; --p
-								
-							elsif win = "11" then
-								HEX2 <="0000110";
-								HEX3 <="0000110"; --EE equal
-								HEX1 <="0001100";
-								HEX5 <="0001100"; --p
-								HEX0 <= "0100100";
-								HEX1 <= "1111001";
-							else
-								HEX0 <="111111";
-								HEX1 <="111111";
-								HEX2 <="111111";
-								HEX3 <="111111";
-								HEX4 <="111111";
-								HEX5 <="111111";
-							end if;
-						
-					end case;
-				end process;
+seg_decoder2 : SegDecoder
+    port map (D => prescaled_clk_B, Y => HEX4);
 
-end Behavioral;
+seg_decoder3 : SegDecoder
+    port map (D => latched_clk_A_p1, Y => HEX3);
+
+seg_decoder4 : SegDecoder
+    port map (D => latched_clk_B_p1, Y => HEX2);
+
+-- Outputs inside the process block
+process(current_state)
+begin
+    case current_state is
+        when Setup =>
+            HEX1 <= "1111111";
+            HEX4 <= "1111111";
+            HEX5 <= "1111111";
+            HEX2 <= "1111001"; --1
+            HEX3 <= "0001100"; --P
+
+        when P1Game =>
+            HEX0 <= "1111001"; --1
+            HEX1 <= "0001100"; --P
+
+        when DisplayP1 =>
+            HEX4 <= "1111001"; --1
+            HEX5 <= "0001100"; --p
+            HEX1 <= "0001100"; --p
+            HEX0 <= "1111001"; --1
+
+        when P2Game =>
+            HEX0 <= "0100100"; --2
+            HEX1 <= "0001100"; --P
+
+        when Compare =>
+            HEX0 <= "000100";
+            HEX1 <= "000100";
+            HEX2 <= "000100";
+            HEX3 <= "000100";
+            HEX4 <= "000100";
+            HEX5 <= "000100";
+
+        when Winner =>
+            if win = "01" then
+                HEX0 <= "111111";
+                HEX1 <= "111111";
+                HEX4 <= "111111";
+                HEX5 <= "111111";
+                HEX2 <= "1111001"; --1
+                HEX3 <= "0001100"; --p
+
+            elsif win = "10" then
+                HEX0 <= "111111";
+                HEX1 <= "111111";
+                HEX4 <= "111111";
+                HEX5 <= "111111";
+                HEX2 <= "0100100"; --2
+                HEX3 <= "0001100"; --p
+
+            elsif win = "11" then
+                HEX2 <= "0000110";
+                HEX3 <= "0000110"; --EE equal
+                HEX1 <= "0001100";
+                HEX5 <= "0001100"; --p
+                HEX0 <= "0100100";
+                HEX1 <= "1111001";
+
+            else
+                HEX0 <= "111111";
+                HEX1 <= "111111";
+                HEX2 <= "111111";
+                HEX3 <= "111111";
+                HEX4 <= "111111";
+                HEX5 <= "111111";
+            end if;
+    end case;
+end process;
+end behavioral;
+
