@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSXFC6D6F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY TopTest
+set_global_assignment -name TOP_LEVEL_ENTITY TopTestGame
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.1STD.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:47:19  DECEMBER 04, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.1 Lite Edition"
@@ -234,6 +234,7 @@ set_global_assignment -name VHDL_FILE RandGen.vhd
 set_global_assignment -name VHDL_FILE GameFSM.vhd
 set_global_assignment -name VHDL_FILE "../ENSC-252/lab3/SegDecoder.vhd"
 set_global_assignment -name VHDL_FILE TopTest.vhd
+set_global_assignment -name VHDL_FILE TopTestGame.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

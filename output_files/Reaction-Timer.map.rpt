@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Reaction-Timer
-Thu Dec  5 21:15:13 2024
+Fri Dec  6 00:38:28 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -16,10 +16,9 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   8. Registers Removed During Synthesis
   9. General Register Statistics
  10. Inverted Register Statistics
- 11. Port Connectivity Checks: "SegDecoder:seg_decoder3"
- 12. Post-Synthesis Netlist Statistics for Top Partition
- 13. Elapsed Time Per Partition
- 14. Analysis & Synthesis Messages
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -46,14 +45,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Dec  5 21:15:13 2024          ;
+; Analysis & Synthesis Status     ; Successful - Fri Dec  6 00:38:28 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; Reaction-Timer                                 ;
-; Top-level Entity Name           ; TopTest                                        ;
+; Top-level Entity Name           ; TopTestGame                                    ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 36                                             ;
-; Total pins                      ; 60                                             ;
+; Total registers                 ; 46                                             ;
+; Total pins                      ; 61                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
 ; Total DSP Blocks                ; 0                                              ;
@@ -72,7 +71,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSXFC6D6F31C6     ;                    ;
-; Top-level entity name                                                           ; TopTest            ; Reaction-Timer     ;
+; Top-level entity name                                                           ; TopTestGame        ; Reaction-Timer     ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -170,56 +169,59 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                     ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                              ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------+---------+
-; PreScale.vhd                     ; yes             ; User VHDL File  ; C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/PreScale.vhd ;         ;
-; RandGen.vhd                      ; yes             ; User VHDL File  ; C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd  ;         ;
-; ../ENSC-252/lab3/SegDecoder.vhd  ; yes             ; User VHDL File  ; C:/Users/micha/OneDrive/Documents/GitHub/ENSC-252/lab3/SegDecoder.vhd     ;         ;
-; TopTest.vhd                      ; yes             ; User VHDL File  ; C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd  ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                        ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------+---------+
+; PreScale.vhd                     ; yes             ; User VHDL File  ; C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/PreScale.vhd    ;         ;
+; RandGen.vhd                      ; yes             ; User VHDL File  ; C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd     ;         ;
+; ../ENSC-252/lab3/SegDecoder.vhd  ; yes             ; User VHDL File  ; C:/Users/micha/OneDrive/Documents/GitHub/ENSC-252/lab3/SegDecoder.vhd        ;         ;
+; TopTestGame.vhd                  ; yes             ; User VHDL File  ; C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 34        ;
-;                                             ;           ;
-; Combinational ALUT usage for logic          ; 60        ;
-;     -- 7 input functions                    ; 0         ;
-;     -- 6 input functions                    ; 6         ;
-;     -- 5 input functions                    ; 2         ;
-;     -- 4 input functions                    ; 11        ;
-;     -- <=3 input functions                  ; 41        ;
-;                                             ;           ;
-; Dedicated logic registers                   ; 36        ;
-;                                             ;           ;
-; I/O pins                                    ; 60        ;
-;                                             ;           ;
-; Total DSP Blocks                            ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 32        ;
-; Total fan-out                               ; 373       ;
-; Average fan-out                             ; 1.73      ;
-+---------------------------------------------+-----------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 48             ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 87             ;
+;     -- 7 input functions                    ; 0              ;
+;     -- 6 input functions                    ; 6              ;
+;     -- 5 input functions                    ; 2              ;
+;     -- 4 input functions                    ; 40             ;
+;     -- <=3 input functions                  ; 39             ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 46             ;
+;                                             ;                ;
+; I/O pins                                    ; 61             ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 42             ;
+; Total fan-out                               ; 531            ;
+; Average fan-out                             ; 2.08           ;
++---------------------------------------------+----------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                   ;
-+------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------+-------------+--------------+
-; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name              ; Entity Name ; Library Name ;
-+------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------+-------------+--------------+
-; |TopTest                     ; 60 (1)              ; 36 (0)                    ; 0                 ; 0          ; 60   ; 0            ; |TopTest                         ; TopTest     ; work         ;
-;    |PreScale:prescaler|      ; 36 (36)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |TopTest|PreScale:prescaler      ; PreScale    ; work         ;
-;    |RandGen:RandomGen|       ; 12 (12)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTest|RandGen:RandomGen       ; RandGen     ; work         ;
-;    |SegDecoder:seg_decoder0| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTest|SegDecoder:seg_decoder0 ; SegDecoder  ; work         ;
-;    |SegDecoder:seg_decoder3| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTest|SegDecoder:seg_decoder3 ; SegDecoder  ; work         ;
-+------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------+-------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                       ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                  ; Entity Name ; Library Name ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------+-------------+--------------+
+; |TopTestGame                 ; 87 (1)              ; 46 (8)                    ; 0                 ; 0          ; 61   ; 0            ; |TopTestGame                         ; TopTestGame ; work         ;
+;    |PreScale:prescaler|      ; 39 (39)             ; 34 (34)                   ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|PreScale:prescaler      ; PreScale    ; work         ;
+;    |RandGen:RandomGen|       ; 12 (12)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|RandGen:RandomGen       ; RandGen     ; work         ;
+;    |SegDecoder:seg_decoder0| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|SegDecoder:seg_decoder0 ; SegDecoder  ; work         ;
+;    |SegDecoder:seg_decoder2| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|SegDecoder:seg_decoder2 ; SegDecoder  ; work         ;
+;    |SegDecoder:seg_decoder3| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|SegDecoder:seg_decoder3 ; SegDecoder  ; work         ;
+;    |SegDecoder:seg_decoder4| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|SegDecoder:seg_decoder4 ; SegDecoder  ; work         ;
+;    |SegDecoder:seg_decoder5| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|SegDecoder:seg_decoder5 ; SegDecoder  ; work         ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -228,17 +230,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+----------------------------------------+
 ; Register name                          ; Reason for Removal                     ;
 +----------------------------------------+----------------------------------------+
-; PreScale:prescaler|N[0..4]             ; Stuck at VCC due to stuck port data_in ;
-; PreScale:prescaler|N[7..9]             ; Stuck at GND due to stuck port data_in ;
-; PreScale:prescaler|N[12,13,19..21]     ; Stuck at VCC due to stuck port data_in ;
-; PreScale:prescaler|N[24]               ; Merged with PreScale:prescaler|N[16]   ;
-; PreScale:prescaler|N[17,23]            ; Merged with PreScale:prescaler|N[15]   ;
-; PreScale:prescaler|N[18]               ; Merged with PreScale:prescaler|N[11]   ;
-; PreScale:prescaler|N[5,22]             ; Merged with PreScale:prescaler|N[14]   ;
-; PreScale:prescaler|N[16]               ; Merged with PreScale:prescaler|N[15]   ;
-; PreScale:prescaler|N[14]               ; Merged with PreScale:prescaler|N[10]   ;
-; PreScale:prescaler|N[6]                ; Merged with PreScale:prescaler|N[11]   ;
-; Total Number of Removed Registers = 22 ;                                        ;
+; PreScale:prescaler|N[7..10]            ; Stuck at GND due to stuck port data_in ;
+; PreScale:prescaler|N[16,24]            ; Merged with PreScale:prescaler|N[11]   ;
+; PreScale:prescaler|N[23]               ; Merged with PreScale:prescaler|N[17]   ;
+; PreScale:prescaler|N[1,3,5,14,19..22]  ; Merged with PreScale:prescaler|N[12]   ;
+; PreScale:prescaler|N[6]                ; Merged with PreScale:prescaler|N[15]   ;
+; PreScale:prescaler|N[2,4,13]           ; Merged with PreScale:prescaler|N[0]    ;
+; Total Number of Removed Registers = 19 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
@@ -247,12 +245,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 36    ;
+; Total registers                              ; 46    ;
 ; Number of registers using Synchronous Clear  ; 25    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 4     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 6     ;
+; Number of registers using Clock Enable       ; 17    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -262,18 +260,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
+; PreScale:prescaler|N[0]                ; 2       ;
+; PreScale:prescaler|N[12]               ; 2       ;
 ; PreScale:prescaler|N[15]               ; 2       ;
-; Total number of inverted registers = 1 ;         ;
+; PreScale:prescaler|N[17]               ; 1       ;
+; Total number of inverted registers = 4 ;         ;
 +----------------------------------------+---------+
-
-
-+-----------------------------------------------------+
-; Port Connectivity Checks: "SegDecoder:seg_decoder3" ;
-+------+-------+----------+---------------------------+
-; Port ; Type  ; Severity ; Details                   ;
-+------+-------+----------+---------------------------+
-; d[0] ; Input ; Info     ; Stuck at GND              ;
-+------+-------+----------+---------------------------+
 
 
 +-----------------------------------------------------+
@@ -281,26 +273,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 36                          ;
+; arriav_ff             ; 46                          ;
 ;     CLR               ; 4                           ;
-;     ENA               ; 6                           ;
+;     ENA               ; 17                          ;
 ;     SCLR              ; 25                          ;
-;     plain             ; 1                           ;
-; arriav_lcell_comb     ; 65                          ;
+; arriav_lcell_comb     ; 95                          ;
 ;     arith             ; 25                          ;
 ;         1 data inputs ; 25                          ;
-;     normal            ; 40                          ;
+;     normal            ; 70                          ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 4                           ;
-;         3 data inputs ; 12                          ;
-;         4 data inputs ; 11                          ;
+;         1 data inputs ; 6                           ;
+;         2 data inputs ; 3                           ;
+;         3 data inputs ; 11                          ;
+;         4 data inputs ; 40                          ;
 ;         5 data inputs ; 2                           ;
 ;         6 data inputs ; 6                           ;
-; boundary_port         ; 60                          ;
+; boundary_port         ; 61                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.40                        ;
-; Average LUT depth     ; 2.32                        ;
+; Average LUT depth     ; 2.10                        ;
 +-----------------------+-----------------------------+
 
 
@@ -319,7 +310,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Thu Dec  5 21:15:06 2024
+    Info: Processing started: Fri Dec  6 00:38:21 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Reaction-Timer -c Reaction-Timer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -327,56 +318,39 @@ Info (12021): Found 2 design units, including 1 entities, in source file debounc
     Info (12022): Found design unit 1: Debounce-Behavioral File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/Debounce.vhd Line: 11
     Info (12023): Found entity 1: Debounce File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/Debounce.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file prescale.vhd
-    Info (12022): Found design unit 1: PreScale-PreScaling File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/PreScale.vhd Line: 13
-    Info (12023): Found entity 1: PreScale File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/PreScale.vhd Line: 5
+    Info (12022): Found design unit 1: PreScale-PreScaling File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/PreScale.vhd Line: 15
+    Info (12023): Found entity 1: PreScale File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/PreScale.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file randgen.vhd
     Info (12022): Found design unit 1: RandGen-Behavioral File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 14
     Info (12023): Found entity 1: RandGen File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file gamefsm.vhd
-    Info (12022): Found design unit 1: GameFSM-FSM File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 25
-    Info (12023): Found entity 1: GameFSM File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 5
+Info (12021): Found 0 design units, including 0 entities, in source file gamefsm.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file /users/micha/onedrive/documents/github/ensc-252/lab3/segdecoder.vhd
     Info (12022): Found design unit 1: SegDecoder-behavorial File: C:/Users/micha/OneDrive/Documents/GitHub/ENSC-252/lab3/SegDecoder.vhd Line: 12
     Info (12023): Found entity 1: SegDecoder File: C:/Users/micha/OneDrive/Documents/GitHub/ENSC-252/lab3/SegDecoder.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file toptest.vhd
-    Info (12022): Found design unit 1: TopTest-Behavioral File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 21
-    Info (12023): Found entity 1: TopTest File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 5
-Info (12127): Elaborating entity "TopTest" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at TopTest.vhd(14): used implicit default value for signal "HEX4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
-Warning (10873): Using initial value X (don't care) for net "LEDR[3..2]" at TopTest.vhd(17) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 17
-Info (12128): Elaborating entity "PreScale" for hierarchy "PreScale:prescaler" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 64
-Info (12128): Elaborating entity "RandGen" for hierarchy "RandGen:RandomGen" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 75
+Info (12021): Found 0 design units, including 0 entities, in source file toptest.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file toptestgame.vhd
+    Info (12022): Found design unit 1: TopTestGame-Behavioral File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 21
+    Info (12023): Found entity 1: TopTestGame File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 5
+Info (12127): Elaborating entity "TopTestGame" for the top level hierarchy
+Warning (10873): Using initial value X (don't care) for net "LEDR[3]" at TopTestGame.vhd(17) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 17
+Info (12128): Elaborating entity "PreScale" for hierarchy "PreScale:prescaler" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 65
+Info (12128): Elaborating entity "SegDecoder" for hierarchy "SegDecoder:seg_decoder3" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 85
+Info (12128): Elaborating entity "RandGen" for hierarchy "RandGen:RandomGen" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 92
 Warning (10492): VHDL Process Statement warning at RandGen.vhd(21): signal "init_seed" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 21
-Info (12128): Elaborating entity "SegDecoder" for hierarchy "SegDecoder:seg_decoder5" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 87
 Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
     Warning (13310): Register "RandGen:RandomGen|lfsr[0]" is converted into an equivalent circuit using register "RandGen:RandomGen|lfsr[0]~_emulated" and latch "RandGen:RandomGen|lfsr[0]~1" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 19
     Warning (13310): Register "RandGen:RandomGen|lfsr[1]" is converted into an equivalent circuit using register "RandGen:RandomGen|lfsr[1]~_emulated" and latch "RandGen:RandomGen|lfsr[1]~5" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 19
     Warning (13310): Register "RandGen:RandomGen|lfsr[2]" is converted into an equivalent circuit using register "RandGen:RandomGen|lfsr[2]~_emulated" and latch "RandGen:RandomGen|lfsr[2]~9" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 19
     Warning (13310): Register "RandGen:RandomGen|lfsr[3]" is converted into an equivalent circuit using register "RandGen:RandomGen|lfsr[3]~_emulated" and latch "RandGen:RandomGen|lfsr[3]~13" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 19
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX2[0]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 12
-    Warning (13410): Pin "HEX2[1]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 12
-    Warning (13410): Pin "HEX2[2]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 12
-    Warning (13410): Pin "HEX2[3]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 12
-    Warning (13410): Pin "HEX2[4]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 12
-    Warning (13410): Pin "HEX2[5]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 12
-    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 12
-    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 13
-    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 13
-    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 13
-    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 13
-    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 13
-    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 13
-    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 13
-    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
-    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
-    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
-    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
-    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
-    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
-    Warning (13410): Pin "HEX4[6]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 17
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 17
+    Warning (13410): Pin "HEX1[0]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 11
+    Warning (13410): Pin "HEX1[1]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 11
+    Warning (13410): Pin "HEX1[2]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 11
+    Warning (13410): Pin "HEX1[3]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 11
+    Warning (13410): Pin "HEX1[4]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 11
+    Warning (13410): Pin "HEX1[5]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 11
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 11
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 17
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 24 assignments for entity "DE10_Standard" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE10_Standard -section_id Top was ignored
@@ -430,18 +404,20 @@ Warning (20013): Ignored 24 assignments for entity "de10" -- entity does not exi
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity de10 -section_id Top was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 9
-Info (21057): Implemented 123 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 14 input pins
+Warning (21074): Design contains 5 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "reset" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 8
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 9
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 9
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 9
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 16
+Info (21057): Implemented 159 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
     Info (21059): Implemented 46 output pins
-    Info (21061): Implemented 63 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 87 warnings
-    Info: Peak virtual memory: 4919 megabytes
-    Info: Processing ended: Thu Dec  5 21:15:13 2024
+    Info (21061): Implemented 98 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 73 warnings
+    Info: Peak virtual memory: 4917 megabytes
+    Info: Processing ended: Fri Dec  6 00:38:28 2024
     Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:09
+    Info: Total CPU time (on all processors): 00:00:08
 
 

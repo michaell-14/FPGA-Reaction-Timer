@@ -1,68 +1,88 @@
-|TopTest
-clk => PreScale:prescaler.Inclock
-reset => RandGen:RandomGen.reset_gen
+|TopTestGame
+CLOCK_50 => PreScale:prescaler.Inclock
+CLOCK_50 => latched_clk_B[0].CLK
+CLOCK_50 => latched_clk_B[1].CLK
+CLOCK_50 => latched_clk_B[2].CLK
+CLOCK_50 => latched_clk_B[3].CLK
+CLOCK_50 => latched_clk_A[0].CLK
+CLOCK_50 => latched_clk_A[1].CLK
+CLOCK_50 => latched_clk_A[2].CLK
+CLOCK_50 => latched_clk_A[3].CLK
+reset => ~NO_FANOUT~
+SW[0] => comb.IN1
 SW[0] => PreScale:prescaler.SW[0]
+SW[1] => comb.IN0
 SW[1] => PreScale:prescaler.SW[1]
+SW[2] => comb.IN1
 SW[2] => PreScale:prescaler.SW[2]
-SW[3] => RandGen:RandomGen.init_seed[0]
-SW[4] => RandGen:RandomGen.init_seed[1]
-SW[5] => RandGen:RandomGen.init_seed[2]
-SW[6] => RandGen:RandomGen.init_seed[3]
-SW[7] => ~NO_FANOUT~
-SW[8] => ~NO_FANOUT~
-SW[9] => ~NO_FANOUT~
-HEX0[0] <= SegDecoder:seg_decoder0.Y[0]
-HEX0[1] <= SegDecoder:seg_decoder0.Y[1]
-HEX0[2] <= SegDecoder:seg_decoder0.Y[2]
-HEX0[3] <= SegDecoder:seg_decoder0.Y[3]
-HEX0[4] <= SegDecoder:seg_decoder0.Y[4]
-HEX0[5] <= SegDecoder:seg_decoder0.Y[5]
-HEX0[6] <= SegDecoder:seg_decoder0.Y[6]
-HEX1[0] <= SegDecoder:seg_decoder3.Y[0]
-HEX1[1] <= SegDecoder:seg_decoder3.Y[1]
-HEX1[2] <= SegDecoder:seg_decoder3.Y[2]
-HEX1[3] <= SegDecoder:seg_decoder3.Y[3]
-HEX1[4] <= SegDecoder:seg_decoder3.Y[4]
-HEX1[5] <= SegDecoder:seg_decoder3.Y[5]
-HEX1[6] <= SegDecoder:seg_decoder3.Y[6]
-HEX2[0] <= <VCC>
-HEX2[1] <= <VCC>
-HEX2[2] <= <VCC>
-HEX2[3] <= <VCC>
-HEX2[4] <= <VCC>
-HEX2[5] <= <VCC>
-HEX2[6] <= <VCC>
-HEX3[0] <= <VCC>
-HEX3[1] <= <VCC>
-HEX3[2] <= <VCC>
-HEX3[3] <= <VCC>
-HEX3[4] <= <VCC>
-HEX3[5] <= <VCC>
-HEX3[6] <= <VCC>
-HEX4[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
-HEX4[1] <= HEX4[1].DB_MAX_OUTPUT_PORT_TYPE
-HEX4[2] <= HEX4[2].DB_MAX_OUTPUT_PORT_TYPE
-HEX4[3] <= HEX4[3].DB_MAX_OUTPUT_PORT_TYPE
-HEX4[4] <= HEX4[4].DB_MAX_OUTPUT_PORT_TYPE
-HEX4[5] <= HEX4[5].DB_MAX_OUTPUT_PORT_TYPE
-HEX4[6] <= HEX4[6].DB_MAX_OUTPUT_PORT_TYPE
-HEX5[0] <= SegDecoder:seg_decoder5.Y[0]
-HEX5[1] <= SegDecoder:seg_decoder5.Y[1]
-HEX5[2] <= SegDecoder:seg_decoder5.Y[2]
-HEX5[3] <= SegDecoder:seg_decoder5.Y[3]
-HEX5[4] <= SegDecoder:seg_decoder5.Y[4]
-HEX5[5] <= SegDecoder:seg_decoder5.Y[5]
-HEX5[6] <= SegDecoder:seg_decoder5.Y[6]
+SW[3] => ~NO_FANOUT~
+SW[4] => ~NO_FANOUT~
+SW[5] => ~NO_FANOUT~
+SW[6] => RandGen:RandomGen.init_seed[0]
+SW[7] => RandGen:RandomGen.init_seed[1]
+SW[8] => RandGen:RandomGen.init_seed[2]
+SW[9] => RandGen:RandomGen.init_seed[3]
+HEX0[0] << SegDecoder:seg_decoder0.Y[0]
+HEX0[1] << SegDecoder:seg_decoder0.Y[1]
+HEX0[2] << SegDecoder:seg_decoder0.Y[2]
+HEX0[3] << SegDecoder:seg_decoder0.Y[3]
+HEX0[4] << SegDecoder:seg_decoder0.Y[4]
+HEX0[5] << SegDecoder:seg_decoder0.Y[5]
+HEX0[6] << SegDecoder:seg_decoder0.Y[6]
+HEX1[0] << <VCC>
+HEX1[1] << <VCC>
+HEX1[2] << <VCC>
+HEX1[3] << <VCC>
+HEX1[4] << <VCC>
+HEX1[5] << <VCC>
+HEX1[6] << <VCC>
+HEX2[0] << SegDecoder:seg_decoder2.Y[0]
+HEX2[1] << SegDecoder:seg_decoder2.Y[1]
+HEX2[2] << SegDecoder:seg_decoder2.Y[2]
+HEX2[3] << SegDecoder:seg_decoder2.Y[3]
+HEX2[4] << SegDecoder:seg_decoder2.Y[4]
+HEX2[5] << SegDecoder:seg_decoder2.Y[5]
+HEX2[6] << SegDecoder:seg_decoder2.Y[6]
+HEX3[0] << SegDecoder:seg_decoder3.Y[0]
+HEX3[1] << SegDecoder:seg_decoder3.Y[1]
+HEX3[2] << SegDecoder:seg_decoder3.Y[2]
+HEX3[3] << SegDecoder:seg_decoder3.Y[3]
+HEX3[4] << SegDecoder:seg_decoder3.Y[4]
+HEX3[5] << SegDecoder:seg_decoder3.Y[5]
+HEX3[6] << SegDecoder:seg_decoder3.Y[6]
+HEX4[0] << SegDecoder:seg_decoder4.Y[0]
+HEX4[1] << SegDecoder:seg_decoder4.Y[1]
+HEX4[2] << SegDecoder:seg_decoder4.Y[2]
+HEX4[3] << SegDecoder:seg_decoder4.Y[3]
+HEX4[4] << SegDecoder:seg_decoder4.Y[4]
+HEX4[5] << SegDecoder:seg_decoder4.Y[5]
+HEX4[6] << SegDecoder:seg_decoder4.Y[6]
+HEX5[0] << SegDecoder:seg_decoder5.Y[0]
+HEX5[1] << SegDecoder:seg_decoder5.Y[1]
+HEX5[2] << SegDecoder:seg_decoder5.Y[2]
+HEX5[3] << SegDecoder:seg_decoder5.Y[3]
+HEX5[4] << SegDecoder:seg_decoder5.Y[4]
+HEX5[5] << SegDecoder:seg_decoder5.Y[5]
+HEX5[6] << SegDecoder:seg_decoder5.Y[6]
+KEY[0] => comb.IN1
 KEY[0] => LEDR[0].DATAIN
-KEY[1] => debug_prescaled_clk.OUTPUTSELECT
-LEDR[0] <= KEY[0].DB_MAX_OUTPUT_PORT_TYPE
-LEDR[1] <= debug_prescaled_clk.DB_MAX_OUTPUT_PORT_TYPE
-LEDR[2] <= <GND>
-LEDR[3] <= <GND>
+KEY[0] => latched_clk_B[1].ENA
+KEY[0] => latched_clk_B[0].ENA
+KEY[0] => latched_clk_B[2].ENA
+KEY[0] => latched_clk_B[3].ENA
+KEY[0] => latched_clk_A[0].ENA
+KEY[0] => latched_clk_A[1].ENA
+KEY[0] => latched_clk_A[2].ENA
+KEY[0] => latched_clk_A[3].ENA
+KEY[1] => ~NO_FANOUT~
+KEY[2] => RandGen:RandomGen.reset_gen
+LEDR[0] << KEY[0].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] << PreScale:prescaler.Outclock_A[3]
+LEDR[2] << PreScale:prescaler.Outclock_B[3]
+LEDR[3] << <GND>
 
 
-|TopTest|PreScale:prescaler
-Inclock => toggle.CLK
+|TopTestGame|PreScale:prescaler
 Inclock => counter[0].CLK
 Inclock => counter[1].CLK
 Inclock => counter[2].CLK
@@ -140,10 +160,93 @@ SW[2] => Mux3.IN8
 SW[2] => Mux4.IN8
 SW[2] => Mux5.IN8
 SW[2] => SW_reg[2].DATAIN
-Outclock <= toggle.DB_MAX_OUTPUT_PORT_TYPE
+Outclock_A[0] <= counter[21].DB_MAX_OUTPUT_PORT_TYPE
+Outclock_A[1] <= counter[22].DB_MAX_OUTPUT_PORT_TYPE
+Outclock_A[2] <= counter[23].DB_MAX_OUTPUT_PORT_TYPE
+Outclock_A[3] <= counter[24].DB_MAX_OUTPUT_PORT_TYPE
+Outclock_B[0] <= counter[17].DB_MAX_OUTPUT_PORT_TYPE
+Outclock_B[1] <= counter[18].DB_MAX_OUTPUT_PORT_TYPE
+Outclock_B[2] <= counter[19].DB_MAX_OUTPUT_PORT_TYPE
+Outclock_B[3] <= counter[20].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|TopTest|RandGen:RandomGen
+|TopTestGame|SegDecoder:seg_decoder3
+D[0] => Mux0.IN19
+D[0] => Mux1.IN19
+D[0] => Mux2.IN19
+D[0] => Mux3.IN19
+D[0] => Mux4.IN19
+D[0] => Mux5.IN19
+D[0] => Mux6.IN19
+D[1] => Mux0.IN18
+D[1] => Mux1.IN18
+D[1] => Mux2.IN18
+D[1] => Mux3.IN18
+D[1] => Mux4.IN18
+D[1] => Mux5.IN18
+D[1] => Mux6.IN18
+D[2] => Mux0.IN17
+D[2] => Mux1.IN17
+D[2] => Mux2.IN17
+D[2] => Mux3.IN17
+D[2] => Mux4.IN17
+D[2] => Mux5.IN17
+D[2] => Mux6.IN17
+D[3] => Mux0.IN16
+D[3] => Mux1.IN16
+D[3] => Mux2.IN16
+D[3] => Mux3.IN16
+D[3] => Mux4.IN16
+D[3] => Mux5.IN16
+D[3] => Mux6.IN16
+Y[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+Y[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+Y[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+Y[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+Y[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+Y[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+Y[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopTestGame|SegDecoder:seg_decoder2
+D[0] => Mux0.IN19
+D[0] => Mux1.IN19
+D[0] => Mux2.IN19
+D[0] => Mux3.IN19
+D[0] => Mux4.IN19
+D[0] => Mux5.IN19
+D[0] => Mux6.IN19
+D[1] => Mux0.IN18
+D[1] => Mux1.IN18
+D[1] => Mux2.IN18
+D[1] => Mux3.IN18
+D[1] => Mux4.IN18
+D[1] => Mux5.IN18
+D[1] => Mux6.IN18
+D[2] => Mux0.IN17
+D[2] => Mux1.IN17
+D[2] => Mux2.IN17
+D[2] => Mux3.IN17
+D[2] => Mux4.IN17
+D[2] => Mux5.IN17
+D[2] => Mux6.IN17
+D[3] => Mux0.IN16
+D[3] => Mux1.IN16
+D[3] => Mux2.IN16
+D[3] => Mux3.IN16
+D[3] => Mux4.IN16
+D[3] => Mux5.IN16
+D[3] => Mux6.IN16
+Y[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+Y[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+Y[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+Y[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+Y[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+Y[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+Y[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopTestGame|RandGen:RandomGen
 clk1 => lfsr[0].CLK
 clk1 => lfsr[1].CLK
 clk1 => lfsr[2].CLK
@@ -162,7 +265,7 @@ rand[2] <= lfsr[2].DB_MAX_OUTPUT_PORT_TYPE
 rand[3] <= lfsr[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|TopTest|SegDecoder:seg_decoder5
+|TopTestGame|SegDecoder:seg_decoder5
 D[0] => Mux0.IN19
 D[0] => Mux1.IN19
 D[0] => Mux2.IN19
@@ -200,7 +303,7 @@ Y[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 Y[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|TopTest|SegDecoder:seg_decoder0
+|TopTestGame|SegDecoder:seg_decoder4
 D[0] => Mux0.IN19
 D[0] => Mux1.IN19
 D[0] => Mux2.IN19
@@ -238,7 +341,7 @@ Y[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 Y[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|TopTest|SegDecoder:seg_decoder3
+|TopTestGame|SegDecoder:seg_decoder0
 D[0] => Mux0.IN19
 D[0] => Mux1.IN19
 D[0] => Mux2.IN19
