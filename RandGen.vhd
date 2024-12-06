@@ -4,23 +4,26 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity RandGen is
     port(
-        clk1    : in STD_LOGIC;
-        reset_gen  : in STD_LOGIC;
-        rand   : out STD_LOGIC_VECTOR(3 downto 0) -- Random number (0 to 9)
+        clk1      : in std_logic; -- Clock signal
+        reset_gen : in std_logic; -- Reset signal
+        init_seed : in std_logic_vector(3 downto 0); -- External dynamic seed input
+        rand      : out std_logic_vector(3 downto 0) -- Random number output
     );
 end entity RandGen;
 
 architecture Behavioral of RandGen is
-    signal lfsr : STD_LOGIC_VECTOR(3 downto 0) := "1101"; -- Seed
+    signal lfsr : std_logic_vector(3 downto 0); -- LFSR register
 begin
     process(clk1, reset_gen)
     begin
         if reset_gen = '1' then
-            lfsr <= "1101"; -- Reset to seed
+            -- Set LFSR to external dynamic seed
+            lfsr <= init_seed; 
         elsif rising_edge(clk1) then
-            lfsr <= lfsr(2 downto 0) & (lfsr(3) xor lfsr(2)); -- LFSR logic
+            -- LFSR logic with feedback
+            lfsr <= lfsr(2 downto 0) & (lfsr(3) xor lfsr(1));
         end if;
     end process;
 
-    rand <= lfsr;
+    rand <= lfsr; -- Assign LFSR value to output
 end Behavioral;

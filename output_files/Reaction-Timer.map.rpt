@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Reaction-Timer
-Thu Dec  5 14:28:47 2024
+Thu Dec  5 21:15:13 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -13,18 +13,13 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |GameFSM|current_state
-  9. User-Specified and Inferred Latches
- 10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Port Connectivity Checks: "SegDecoder:seg_decoder5"
- 14. Port Connectivity Checks: "SegDecoder:seg_decoder4"
- 15. Port Connectivity Checks: "SegDecoder:seg_decoder3"
- 16. Port Connectivity Checks: "SegDecoder:seg_decoder2"
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Port Connectivity Checks: "SegDecoder:seg_decoder3"
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -51,13 +46,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Dec  5 14:28:47 2024          ;
+; Analysis & Synthesis Status     ; Successful - Thu Dec  5 21:15:13 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; Reaction-Timer                                 ;
-; Top-level Entity Name           ; GameFSM                                        ;
+; Top-level Entity Name           ; TopTest                                        ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 37                                             ;
+; Total registers                 ; 36                                             ;
 ; Total pins                      ; 60                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
@@ -77,7 +72,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSXFC6D6F31C6     ;                    ;
-; Top-level entity name                                                           ; GameFSM            ; Reaction-Timer     ;
+; Top-level entity name                                                           ; TopTest            ; Reaction-Timer     ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -182,36 +177,36 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------+---------+
 ; PreScale.vhd                     ; yes             ; User VHDL File  ; C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/PreScale.vhd ;         ;
 ; RandGen.vhd                      ; yes             ; User VHDL File  ; C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd  ;         ;
-; GameFSM.vhd                      ; yes             ; User VHDL File  ; C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd  ;         ;
 ; ../ENSC-252/lab3/SegDecoder.vhd  ; yes             ; User VHDL File  ; C:/Users/micha/OneDrive/Documents/GitHub/ENSC-252/lab3/SegDecoder.vhd     ;         ;
+; TopTest.vhd                      ; yes             ; User VHDL File  ; C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd  ;         ;
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                               ;
-+---------------------------------------------+-----------------------------+
-; Resource                                    ; Usage                       ;
-+---------------------------------------------+-----------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 38                          ;
-;                                             ;                             ;
-; Combinational ALUT usage for logic          ; 68                          ;
-;     -- 7 input functions                    ; 0                           ;
-;     -- 6 input functions                    ; 7                           ;
-;     -- 5 input functions                    ; 0                           ;
-;     -- 4 input functions                    ; 11                          ;
-;     -- <=3 input functions                  ; 50                          ;
-;                                             ;                             ;
-; Dedicated logic registers                   ; 37                          ;
-;                                             ;                             ;
-; I/O pins                                    ; 60                          ;
-;                                             ;                             ;
-; Total DSP Blocks                            ; 0                           ;
-;                                             ;                             ;
-; Maximum fan-out node                        ; PreScale:prescaler|Equal0~6 ;
-; Maximum fan-out                             ; 25                          ;
-; Total fan-out                               ; 385                         ;
-; Average fan-out                             ; 1.71                        ;
-+---------------------------------------------+-----------------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 34        ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 60        ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 6         ;
+;     -- 5 input functions                    ; 2         ;
+;     -- 4 input functions                    ; 11        ;
+;     -- <=3 input functions                  ; 41        ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 36        ;
+;                                             ;           ;
+; I/O pins                                    ; 60        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 32        ;
+; Total fan-out                               ; 373       ;
+; Average fan-out                             ; 1.73      ;
++---------------------------------------------+-----------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -219,51 +214,32 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------+-------------+--------------+
 ; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name              ; Entity Name ; Library Name ;
 +------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------+-------------+--------------+
-; |GameFSM                     ; 68 (26)             ; 37 (8)                    ; 0                 ; 0          ; 60   ; 0            ; |GameFSM                         ; GameFSM     ; work         ;
-;    |PreScale:prescaler|      ; 32 (32)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |GameFSM|PreScale:prescaler      ; PreScale    ; work         ;
-;    |RandGen:RandomGen|       ; 3 (3)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |GameFSM|RandGen:RandomGen       ; RandGen     ; work         ;
-;    |SegDecoder:seg_decoder0| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |GameFSM|SegDecoder:seg_decoder0 ; SegDecoder  ; work         ;
+; |TopTest                     ; 60 (1)              ; 36 (0)                    ; 0                 ; 0          ; 60   ; 0            ; |TopTest                         ; TopTest     ; work         ;
+;    |PreScale:prescaler|      ; 36 (36)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |TopTest|PreScale:prescaler      ; PreScale    ; work         ;
+;    |RandGen:RandomGen|       ; 12 (12)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTest|RandGen:RandomGen       ; RandGen     ; work         ;
+;    |SegDecoder:seg_decoder0| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTest|SegDecoder:seg_decoder0 ; SegDecoder  ; work         ;
+;    |SegDecoder:seg_decoder3| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTest|SegDecoder:seg_decoder3 ; SegDecoder  ; work         ;
 +------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-Encoding Type:  One-Hot
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |GameFSM|current_state                                                                                                                                                                             ;
-+-------------------------+----------------------+-----------------------+----------------------+----------------------+-------------------------+----------------------+----------------------+---------------------+
-; Name                    ; current_state.Winner ; current_state.Compare ; current_state.P2Game ; current_state.WaitP2 ; current_state.DisplayP1 ; current_state.P1Game ; current_state.WaitP1 ; current_state.Setup ;
-+-------------------------+----------------------+-----------------------+----------------------+----------------------+-------------------------+----------------------+----------------------+---------------------+
-; current_state.Setup     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                       ; 0                    ; 0                    ; 0                   ;
-; current_state.WaitP1    ; 0                    ; 0                     ; 0                    ; 0                    ; 0                       ; 0                    ; 1                    ; 1                   ;
-; current_state.P1Game    ; 0                    ; 0                     ; 0                    ; 0                    ; 0                       ; 1                    ; 0                    ; 1                   ;
-; current_state.DisplayP1 ; 0                    ; 0                     ; 0                    ; 0                    ; 1                       ; 0                    ; 0                    ; 1                   ;
-; current_state.WaitP2    ; 0                    ; 0                     ; 0                    ; 1                    ; 0                       ; 0                    ; 0                    ; 1                   ;
-; current_state.P2Game    ; 0                    ; 0                     ; 1                    ; 0                    ; 0                       ; 0                    ; 0                    ; 1                   ;
-; current_state.Compare   ; 0                    ; 1                     ; 0                    ; 0                    ; 0                       ; 0                    ; 0                    ; 1                   ;
-; current_state.Winner    ; 1                    ; 0                     ; 0                    ; 0                    ; 0                       ; 0                    ; 0                    ; 1                   ;
-+-------------------------+----------------------+-----------------------+----------------------+----------------------+-------------------------+----------------------+----------------------+---------------------+
-
-
-+----------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                ;
-+-----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
-+-----------------------------------------------------+---------------------+------------------------+
-; hex_disp[0]$latch                                   ; WideOr0             ; yes                    ;
-; hex_disp[1]$latch                                   ; WideOr0             ; yes                    ;
-; hex_disp[2]$latch                                   ; WideOr0             ; yes                    ;
-; hex_disp[3]$latch                                   ; WideOr0             ; yes                    ;
-; next_state.DisplayP1_438                            ; Selector6           ; yes                    ;
-; next_state.Setup_468                                ; Selector6           ; yes                    ;
-; next_state.P1Game_448                               ; Selector6           ; yes                    ;
-; next_state.P2Game_418                               ; Selector6           ; yes                    ;
-; next_state.Winner_398                               ; Selector6           ; yes                    ;
-; next_state.WaitP1_458                               ; Selector6           ; yes                    ;
-; next_state.WaitP2_428                               ; Selector6           ; yes                    ;
-; next_state.Compare_408                              ; Selector6           ; yes                    ;
-; Number of user-specified and inferred latches = 12  ;                     ;                        ;
-+-----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; PreScale:prescaler|N[0..4]             ; Stuck at VCC due to stuck port data_in ;
+; PreScale:prescaler|N[7..9]             ; Stuck at GND due to stuck port data_in ;
+; PreScale:prescaler|N[12,13,19..21]     ; Stuck at VCC due to stuck port data_in ;
+; PreScale:prescaler|N[24]               ; Merged with PreScale:prescaler|N[16]   ;
+; PreScale:prescaler|N[17,23]            ; Merged with PreScale:prescaler|N[15]   ;
+; PreScale:prescaler|N[18]               ; Merged with PreScale:prescaler|N[11]   ;
+; PreScale:prescaler|N[5,22]             ; Merged with PreScale:prescaler|N[14]   ;
+; PreScale:prescaler|N[16]               ; Merged with PreScale:prescaler|N[15]   ;
+; PreScale:prescaler|N[14]               ; Merged with PreScale:prescaler|N[10]   ;
+; PreScale:prescaler|N[6]                ; Merged with PreScale:prescaler|N[11]   ;
+; Total Number of Removed Registers = 22 ;                                        ;
++----------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -271,12 +247,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 37    ;
+; Total registers                              ; 36    ;
 ; Number of registers using Synchronous Clear  ; 25    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 12    ;
+; Number of registers using Asynchronous Clear ; 4     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 6     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -286,38 +262,9 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; RandGen:RandomGen|lfsr[0]              ; 9       ;
-; RandGen:RandomGen|lfsr[2]              ; 10      ;
-; RandGen:RandomGen|lfsr[3]              ; 9       ;
-; Total number of inverted registers = 3 ;         ;
+; PreScale:prescaler|N[15]               ; 2       ;
+; Total number of inverted registers = 1 ;         ;
 +----------------------------------------+---------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |GameFSM|PreScale:prescaler|N[22] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
-
-
-+-----------------------------------------------------+
-; Port Connectivity Checks: "SegDecoder:seg_decoder5" ;
-+------+-------+----------+---------------------------+
-; Port ; Type  ; Severity ; Details                   ;
-+------+-------+----------+---------------------------+
-; d    ; Input ; Info     ; Stuck at GND              ;
-+------+-------+----------+---------------------------+
-
-
-+-----------------------------------------------------+
-; Port Connectivity Checks: "SegDecoder:seg_decoder4" ;
-+------+-------+----------+---------------------------+
-; Port ; Type  ; Severity ; Details                   ;
-+------+-------+----------+---------------------------+
-; d    ; Input ; Info     ; Stuck at GND              ;
-+------+-------+----------+---------------------------+
 
 
 +-----------------------------------------------------+
@@ -325,16 +272,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +------+-------+----------+---------------------------+
 ; Port ; Type  ; Severity ; Details                   ;
 +------+-------+----------+---------------------------+
-; d    ; Input ; Info     ; Stuck at GND              ;
-+------+-------+----------+---------------------------+
-
-
-+-----------------------------------------------------+
-; Port Connectivity Checks: "SegDecoder:seg_decoder2" ;
-+------+-------+----------+---------------------------+
-; Port ; Type  ; Severity ; Details                   ;
-+------+-------+----------+---------------------------+
-; d    ; Input ; Info     ; Stuck at GND              ;
+; d[0] ; Input ; Info     ; Stuck at GND              ;
 +------+-------+----------+---------------------------+
 
 
@@ -343,23 +281,26 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 37                          ;
-;     CLR               ; 12                          ;
+; arriav_ff             ; 36                          ;
+;     CLR               ; 4                           ;
+;     ENA               ; 6                           ;
 ;     SCLR              ; 25                          ;
-; arriav_lcell_comb     ; 71                          ;
+;     plain             ; 1                           ;
+; arriav_lcell_comb     ; 65                          ;
 ;     arith             ; 25                          ;
 ;         1 data inputs ; 25                          ;
-;     normal            ; 46                          ;
+;     normal            ; 40                          ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 8                           ;
-;         3 data inputs ; 14                          ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 12                          ;
 ;         4 data inputs ; 11                          ;
-;         6 data inputs ; 7                           ;
+;         5 data inputs ; 2                           ;
+;         6 data inputs ; 6                           ;
 ; boundary_port         ; 60                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.40                        ;
-; Average LUT depth     ; 2.14                        ;
+; Average LUT depth     ; 2.32                        ;
 +-----------------------+-----------------------------+
 
 
@@ -378,7 +319,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Thu Dec  5 14:28:39 2024
+    Info: Processing started: Thu Dec  5 21:15:06 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Reaction-Timer -c Reaction-Timer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -389,145 +330,53 @@ Info (12021): Found 2 design units, including 1 entities, in source file prescal
     Info (12022): Found design unit 1: PreScale-PreScaling File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/PreScale.vhd Line: 13
     Info (12023): Found entity 1: PreScale File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/PreScale.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file randgen.vhd
-    Info (12022): Found design unit 1: RandGen-Behavioral File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 13
+    Info (12022): Found design unit 1: RandGen-Behavioral File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 14
     Info (12023): Found entity 1: RandGen File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file gamefsm.vhd
-    Info (12022): Found design unit 1: GameFSM-FSM File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 23
+    Info (12022): Found design unit 1: GameFSM-FSM File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 25
     Info (12023): Found entity 1: GameFSM File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file /users/micha/onedrive/documents/github/ensc-252/lab3/segdecoder.vhd
     Info (12022): Found design unit 1: SegDecoder-behavorial File: C:/Users/micha/OneDrive/Documents/GitHub/ENSC-252/lab3/SegDecoder.vhd Line: 12
     Info (12023): Found entity 1: SegDecoder File: C:/Users/micha/OneDrive/Documents/GitHub/ENSC-252/lab3/SegDecoder.vhd Line: 6
-Info (12127): Elaborating entity "GameFSM" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at GameFSM.vhd(31): object "reset_over" assigned a value but never read File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 31
-Warning (10540): VHDL Signal Declaration warning at GameFSM.vhd(32): used explicit default value for signal "counter_p1" because signal was never assigned a value File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 32
-Warning (10540): VHDL Signal Declaration warning at GameFSM.vhd(32): used explicit default value for signal "counter_p2" because signal was never assigned a value File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 32
-Warning (10036): Verilog HDL or VHDL warning at GameFSM.vhd(33): object "counting_p1" assigned a value but never read File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 33
-Warning (10036): Verilog HDL or VHDL warning at GameFSM.vhd(33): object "counting_p2" assigned a value but never read File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 33
-Warning (10492): VHDL Process Statement warning at GameFSM.vhd(99): signal "reset_game" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 99
-Warning (10492): VHDL Process Statement warning at GameFSM.vhd(153): signal "reset_game" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 153
-Warning (10631): VHDL Process Statement warning at GameFSM.vhd(92): inferring latch(es) for signal or variable "hex_disp", which holds its previous value in one or more paths through the process File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Warning (10631): VHDL Process Statement warning at GameFSM.vhd(92): inferring latch(es) for signal or variable "time_p1", which holds its previous value in one or more paths through the process File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Warning (10631): VHDL Process Statement warning at GameFSM.vhd(92): inferring latch(es) for signal or variable "time_p2", which holds its previous value in one or more paths through the process File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Warning (10631): VHDL Process Statement warning at GameFSM.vhd(92): inferring latch(es) for signal or variable "next_state", which holds its previous value in one or more paths through the process File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Warning (10631): VHDL Process Statement warning at GameFSM.vhd(92): inferring latch(es) for signal or variable "winner_led", which holds its previous value in one or more paths through the process File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "winner_led[0]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "winner_led[1]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "next_state.Winner" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "next_state.Compare" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "next_state.P2Game" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "next_state.WaitP2" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "next_state.DisplayP1" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "next_state.P1Game" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "next_state.WaitP1" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "next_state.Setup" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[0]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[1]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[2]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[3]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[4]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[5]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[6]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[7]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[8]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[9]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[10]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[11]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[12]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[13]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[14]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[15]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[16]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[17]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[18]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[19]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[20]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[21]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[22]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p2[23]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[0]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[1]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[2]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[3]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[4]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[5]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[6]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[7]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[8]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[9]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[10]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[11]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[12]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[13]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[14]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[15]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[16]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[17]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[18]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[19]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[20]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[21]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[22]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "time_p1[23]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "hex_disp[0]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "hex_disp[1]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "hex_disp[2]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (10041): Inferred latch for "hex_disp[3]" at GameFSM.vhd(92) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-Info (12128): Elaborating entity "PreScale" for hierarchy "PreScale:prescaler" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 66
-Info (12128): Elaborating entity "RandGen" for hierarchy "RandGen:RandomGen" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 74
-Info (12128): Elaborating entity "SegDecoder" for hierarchy "SegDecoder:seg_decoder0" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 165
-Warning (13012): Latch hex_disp[0]$latch has unsafe behavior File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.DisplayP1 File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 25
-Warning (13012): Latch hex_disp[1]$latch has unsafe behavior File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.DisplayP1 File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 25
-Warning (13012): Latch hex_disp[2]$latch has unsafe behavior File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.DisplayP1 File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 25
-Warning (13012): Latch hex_disp[3]$latch has unsafe behavior File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.DisplayP1 File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 25
-Warning (13012): Latch next_state.DisplayP1_438 has unsafe behavior File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.P1Game File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 25
-Warning (13012): Latch next_state.Setup_468 has unsafe behavior File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal KEY[0] File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 9
-Warning (13012): Latch next_state.P1Game_448 has unsafe behavior File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal KEY[0] File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 9
-Warning (13012): Latch next_state.P2Game_418 has unsafe behavior File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal KEY[1] File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 9
-Warning (13012): Latch next_state.WaitP1_458 has unsafe behavior File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal KEY[0] File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 9
-Warning (13012): Latch next_state.WaitP2_428 has unsafe behavior File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal KEY[1] File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 9
-Warning (13012): Latch next_state.Compare_408 has unsafe behavior File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.P2Game File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file toptest.vhd
+    Info (12022): Found design unit 1: TopTest-Behavioral File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 21
+    Info (12023): Found entity 1: TopTest File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 5
+Info (12127): Elaborating entity "TopTest" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at TopTest.vhd(14): used implicit default value for signal "HEX4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
+Warning (10873): Using initial value X (don't care) for net "LEDR[3..2]" at TopTest.vhd(17) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 17
+Info (12128): Elaborating entity "PreScale" for hierarchy "PreScale:prescaler" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 64
+Info (12128): Elaborating entity "RandGen" for hierarchy "RandGen:RandomGen" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 75
+Warning (10492): VHDL Process Statement warning at RandGen.vhd(21): signal "init_seed" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 21
+Info (12128): Elaborating entity "SegDecoder" for hierarchy "SegDecoder:seg_decoder5" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 87
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "RandGen:RandomGen|lfsr[0]" is converted into an equivalent circuit using register "RandGen:RandomGen|lfsr[0]~_emulated" and latch "RandGen:RandomGen|lfsr[0]~1" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 19
+    Warning (13310): Register "RandGen:RandomGen|lfsr[1]" is converted into an equivalent circuit using register "RandGen:RandomGen|lfsr[1]~_emulated" and latch "RandGen:RandomGen|lfsr[1]~5" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 19
+    Warning (13310): Register "RandGen:RandomGen|lfsr[2]" is converted into an equivalent circuit using register "RandGen:RandomGen|lfsr[2]~_emulated" and latch "RandGen:RandomGen|lfsr[2]~9" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 19
+    Warning (13310): Register "RandGen:RandomGen|lfsr[3]" is converted into an equivalent circuit using register "RandGen:RandomGen|lfsr[3]~_emulated" and latch "RandGen:RandomGen|lfsr[3]~13" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 19
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 15
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 15
-    Warning (13410): Pin "HEX2[2]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 15
-    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 15
-    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 15
-    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 15
-    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 15
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 16
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 16
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 16
-    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 16
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 16
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 16
-    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 16
-    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 17
-    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 17
-    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 17
-    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 17
-    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 17
-    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 17
-    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 17
-    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 18
-    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 18
-    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 18
-    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 18
-    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 18
-    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 18
-    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 18
-    Warning (13410): Pin "winner_led[0]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
-    Warning (13410): Pin "winner_led[1]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 92
+    Warning (13410): Pin "HEX2[0]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 12
+    Warning (13410): Pin "HEX2[1]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 12
+    Warning (13410): Pin "HEX2[2]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 12
+    Warning (13410): Pin "HEX2[3]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 12
+    Warning (13410): Pin "HEX2[4]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 12
+    Warning (13410): Pin "HEX2[5]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 12
+    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 12
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 13
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 13
+    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 13
+    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 13
+    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 13
+    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 13
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 13
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
+    Warning (13410): Pin "HEX4[6]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 14
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 17
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 17
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 24 assignments for entity "DE10_Standard" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE10_Standard -section_id Top was ignored
@@ -581,20 +430,18 @@ Warning (20013): Ignored 24 assignments for entity "de10" -- entity does not exi
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity de10 -section_id Top was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 5 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 10
-    Warning (15610): No output dependent on input pin "rand_num[0]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 11
-    Warning (15610): No output dependent on input pin "rand_num[1]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 11
-    Warning (15610): No output dependent on input pin "rand_num[2]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 11
-    Warning (15610): No output dependent on input pin "rand_num[3]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/GameFSM.vhd Line: 11
-Info (21057): Implemented 136 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 12 input pins
-    Info (21059): Implemented 48 output pins
-    Info (21061): Implemented 76 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 122 warnings
-    Info: Peak virtual memory: 4895 megabytes
-    Info: Processing ended: Thu Dec  5 14:28:47 2024
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:08
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 9
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 9
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTest.vhd Line: 9
+Info (21057): Implemented 123 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 14 input pins
+    Info (21059): Implemented 46 output pins
+    Info (21061): Implemented 63 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 87 warnings
+    Info: Peak virtual memory: 4919 megabytes
+    Info: Processing ended: Thu Dec  5 21:15:13 2024
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:09
 
 

@@ -1,11 +1,11 @@
-Fitter Status : Successful - Thu Dec  5 14:29:28 2024
+Fitter Status : Successful - Thu Dec  5 21:15:52 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : Reaction-Timer
-Top-level Entity Name : GameFSM
+Top-level Entity Name : TopTest
 Family : Cyclone V
 Device : 5CSXFC6D6F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 38 / 41,910 ( < 1 % )
+Logic utilization (in ALMs) : 34 / 41,910 ( < 1 % )
 Total registers : 40
 Total pins : 60 / 499 ( 12 % )
 Total virtual pins : 0

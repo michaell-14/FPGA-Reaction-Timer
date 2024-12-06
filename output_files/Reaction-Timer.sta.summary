@@ -2,196 +2,148 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1100mV 85C Model Setup 'clk_in'
-Slack : -6.032
-TNS   : -136.001
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : -5.051
+TNS   : -84.504
 
-Type  : Slow 1100mV 85C Model Setup 'KEY[0]'
-Slack : -4.403
-TNS   : -30.907
+Type  : Slow 1100mV 85C Model Setup 'PreScale:prescaler|toggle'
+Slack : -2.935
+TNS   : -10.781
 
-Type  : Slow 1100mV 85C Model Setup 'current_state.DisplayP1'
-Slack : -2.843
-TNS   : -10.707
-
-Type  : Slow 1100mV 85C Model Setup 'PreScale:prescaler|counter[24]'
-Slack : -2.387
-TNS   : -24.793
-
-Type  : Slow 1100mV 85C Model Hold 'clk_in'
-Slack : -0.159
-TNS   : -0.159
-
-Type  : Slow 1100mV 85C Model Hold 'current_state.DisplayP1'
-Slack : 0.778
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : 0.378
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Hold 'PreScale:prescaler|counter[24]'
-Slack : 0.797
+Type  : Slow 1100mV 85C Model Hold 'PreScale:prescaler|toggle'
+Slack : 0.947
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Hold 'KEY[0]'
-Slack : 0.844
+Type  : Slow 1100mV 85C Model Recovery 'PreScale:prescaler|toggle'
+Slack : -2.242
+TNS   : -8.955
+
+Type  : Slow 1100mV 85C Model Removal 'PreScale:prescaler|toggle'
+Slack : 1.054
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_in'
-Slack : -0.488
-TNS   : -13.443
-
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'PreScale:prescaler|counter[24]'
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
 Slack : -0.394
-TNS   : -8.613
+TNS   : -18.932
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'KEY[0]'
-Slack : 0.350
-TNS   : 0.000
-
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'current_state.DisplayP1'
-Slack : 0.408
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Setup 'clk_in'
-Slack : -5.792
-TNS   : -130.958
-
-Type  : Slow 1100mV 0C Model Setup 'KEY[0]'
-Slack : -4.180
-TNS   : -29.069
-
-Type  : Slow 1100mV 0C Model Setup 'current_state.DisplayP1'
-Slack : -2.686
-TNS   : -9.999
-
-Type  : Slow 1100mV 0C Model Setup 'PreScale:prescaler|counter[24]'
-Slack : -2.412
-TNS   : -24.747
-
-Type  : Slow 1100mV 0C Model Hold 'clk_in'
-Slack : 0.132
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Hold 'KEY[0]'
-Slack : 0.548
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Hold 'current_state.DisplayP1'
-Slack : 0.693
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Hold 'PreScale:prescaler|counter[24]'
-Slack : 0.729
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_in'
-Slack : -0.553
-TNS   : -14.661
-
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'PreScale:prescaler|counter[24]'
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'PreScale:prescaler|toggle'
 Slack : -0.394
-TNS   : -8.408
+TNS   : -2.676
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'KEY[0]'
-Slack : 0.303
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'reset'
+Slack : 0.094
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'current_state.DisplayP1'
-Slack : 0.399
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : -5.166
+TNS   : -83.799
+
+Type  : Slow 1100mV 0C Model Setup 'PreScale:prescaler|toggle'
+Slack : -3.138
+TNS   : -11.496
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : 0.379
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Setup 'clk_in'
-Slack : -3.810
-TNS   : -84.198
-
-Type  : Fast 1100mV 85C Model Setup 'KEY[0]'
-Slack : -3.360
-TNS   : -21.262
-
-Type  : Fast 1100mV 85C Model Setup 'current_state.DisplayP1'
-Slack : -1.564
-TNS   : -5.962
-
-Type  : Fast 1100mV 85C Model Setup 'PreScale:prescaler|counter[24]'
-Slack : -0.952
-TNS   : -9.884
-
-Type  : Fast 1100mV 85C Model Hold 'clk_in'
-Slack : -0.201
-TNS   : -0.201
-
-Type  : Fast 1100mV 85C Model Hold 'PreScale:prescaler|counter[24]'
-Slack : 0.347
+Type  : Slow 1100mV 0C Model Hold 'PreScale:prescaler|toggle'
+Slack : 0.934
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Hold 'current_state.DisplayP1'
-Slack : 0.623
+Type  : Slow 1100mV 0C Model Recovery 'PreScale:prescaler|toggle'
+Slack : -2.310
+TNS   : -9.227
+
+Type  : Slow 1100mV 0C Model Removal 'PreScale:prescaler|toggle'
+Slack : 1.096
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Hold 'KEY[0]'
-Slack : 0.635
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.394
+TNS   : -20.690
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'PreScale:prescaler|toggle'
+Slack : -0.394
+TNS   : -2.824
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'reset'
+Slack : 0.084
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk_in'
-Slack : -0.590
-TNS   : -2.627
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -2.789
+TNS   : -34.737
 
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'PreScale:prescaler|counter[24]'
-Slack : 0.033
+Type  : Fast 1100mV 85C Model Setup 'PreScale:prescaler|toggle'
+Slack : -1.785
+TNS   : -6.762
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : 0.200
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'KEY[0]'
-Slack : 0.067
+Type  : Fast 1100mV 85C Model Hold 'PreScale:prescaler|toggle'
+Slack : 0.398
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'current_state.DisplayP1'
-Slack : 0.434
+Type  : Fast 1100mV 85C Model Recovery 'PreScale:prescaler|toggle'
+Slack : -1.561
+TNS   : -6.240
+
+Type  : Fast 1100mV 85C Model Removal 'PreScale:prescaler|toggle'
+Slack : 0.406
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Setup 'clk_in'
-Slack : -3.174
-TNS   : -69.933
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.202
+TNS   : -3.241
 
-Type  : Fast 1100mV 0C Model Setup 'KEY[0]'
-Slack : -2.749
-TNS   : -17.074
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'reset'
+Slack : -0.068
+TNS   : -0.350
 
-Type  : Fast 1100mV 0C Model Setup 'current_state.DisplayP1'
-Slack : -1.379
-TNS   : -5.203
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'PreScale:prescaler|toggle'
+Slack : -0.055
+TNS   : -0.215
 
-Type  : Fast 1100mV 0C Model Setup 'PreScale:prescaler|counter[24]'
-Slack : -0.962
-TNS   : -9.378
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -2.539
+TNS   : -29.928
 
-Type  : Fast 1100mV 0C Model Hold 'clk_in'
-Slack : 0.019
+Type  : Fast 1100mV 0C Model Setup 'PreScale:prescaler|toggle'
+Slack : -1.880
+TNS   : -7.099
+
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : 0.189
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Hold 'PreScale:prescaler|counter[24]'
-Slack : 0.316
+Type  : Fast 1100mV 0C Model Hold 'PreScale:prescaler|toggle'
+Slack : 0.402
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Hold 'KEY[0]'
-Slack : 0.405
+Type  : Fast 1100mV 0C Model Recovery 'PreScale:prescaler|toggle'
+Slack : -1.614
+TNS   : -6.452
+
+Type  : Fast 1100mV 0C Model Removal 'PreScale:prescaler|toggle'
+Slack : 0.484
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Hold 'current_state.DisplayP1'
-Slack : 0.543
-TNS   : 0.000
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.217
+TNS   : -3.155
 
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk_in'
-Slack : -0.582
-TNS   : -2.704
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'reset'
+Slack : -0.070
+TNS   : -0.366
 
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'KEY[0]'
-Slack : 0.052
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'PreScale:prescaler|counter[24]'
-Slack : 0.062
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'current_state.DisplayP1'
-Slack : 0.445
-TNS   : 0.000
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'PreScale:prescaler|toggle'
+Slack : -0.053
+TNS   : -0.206
 
 ------------------------------------------------------------
