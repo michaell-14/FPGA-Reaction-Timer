@@ -1,0 +1,100 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity FSM_GameLogic is
+    port(
+        prescaled_clk_A : in std_logic_vector(3 downto 0);
+        clk_run         : in std_logic;
+        clk_run1        : in std_logic;
+        reset_game      : in std_logic;
+        latched_clk_A_p1 : out std_logic_vector(3 downto 0);
+        latched_clk_B_p1 : out std_logic_vector(3 downto 0);
+        latched_clk_A_p2 : out std_logic_vector(3 downto 0);
+        latched_clk_B_p2 : out std_logic_vector(3 downto 0);
+        win             : out std_logic_vector(1 downto 0);
+        HEX0_sig        : out std_logic_vector(6 downto 0);
+        HEX1_sig        : out std_logic_vector(6 downto 0);
+        HEX2_sig        : out std_logic_vector(6 downto 0);
+        HEX3_sig        : out std_logic_vector(6 downto 0);
+        HEX4_sig        : out std_logic_vector(6 downto 0);
+        HEX5_sig        : out std_logic_vector(6 downto 0)
+    );
+end entity FSM_GameLogic;
+
+architecture Behavioral of FSM_GameLogic is
+    type state_type is (Setup, P1Game, DisplayP1, P2Game, Compare, Winner);
+    signal current_state, next_state : state_type;
+begin
+    -- State Transition Process
+    process(prescaled_clk_A, current_state, clk_run, clk_run1, reset_game)
+    begin
+        if reset_game = '1' then
+            next_state <= Setup;
+        else
+            case current_state is
+                when Setup =>
+                    if clk_run = '1' then
+                        next_state <= P1Game;
+                    end if;
+
+                when P1Game =>
+                    if rising_edge(prescaled_clk_A(3)) then
+                        next_state <= DisplayP1;
+                    end if;
+
+                when DisplayP1 =>
+                    if clk_run1 = '1' then
+                        next_state <= P2Game;
+                    end if;
+
+                when P2Game =>
+                    if rising_edge(prescaled_clk_A(3)) then
+                        next_state <= Compare;
+                    end if;
+
+                when Compare =>
+                    next_state <= Winner;
+
+                when Winner =>
+                    if reset_game = '1' then
+                        next_state <= Setup;
+                    end if;
+
+                when others =>
+                    next_state <= Setup;
+            end case;
+        end if;
+    end process;
+
+    -- Output Logic
+    process(current_state)
+    begin
+        -- Default assignments
+        HEX0_sig <= "1111111";
+        HEX1_sig <= "1111111";
+        -- Update outputs based on states
+        case current_state is
+            when Setup =>
+                HEX2_sig <= "1111001"; -- 1
+                HEX3_sig <= "0001100"; -- P
+
+            when Winner =>
+                if win = "10" then
+                    HEX0_sig <= "0100100"; -- 2
+                    HEX3_sig <= "0001100"; -- P
+                end if;
+
+            when others =>
+                -- Add cases for other states as needed
+        end case;
+    end process;
+
+    -- Update current state
+    process(prescaled_clk_A)
+    begin
+        if rising_edge(prescaled_clk_A(3)) then
+            current_state <= next_state;
+        end if;
+    end process;
+end architecture Behavioral;

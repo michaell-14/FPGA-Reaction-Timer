@@ -1,10 +1,14 @@
 
-State Machine - |GameFSM|current_state
-Name current_state.Winner current_state.Compare current_state.P2Game current_state.WaitP2 current_state.DisplayP1 current_state.P1Game current_state.Setup 
-current_state.Setup 0 0 0 0 0 0 0 
-current_state.P1Game 0 0 0 0 0 1 1 
-current_state.DisplayP1 0 0 0 0 1 0 1 
-current_state.WaitP2 0 0 0 1 0 0 1 
-current_state.P2Game 0 0 1 0 0 0 1 
-current_state.Compare 0 1 0 0 0 0 1 
-current_state.Winner 1 0 0 0 0 0 1 
+State Machine - |TopTestGame|FSM_GameLogic:fsm_inst|next_state
+Name next_state.DisplayValues next_state.LatchValue next_state.WaitForStart next_state.Setup 
+next_state.Setup 0 0 0 0 
+next_state.WaitForStart 0 0 1 1 
+next_state.LatchValue 0 1 0 1 
+next_state.DisplayValues 1 0 0 1 
+
+State Machine - |TopTestGame|FSM_GameLogic:fsm_inst|current_state
+Name current_state.DisplayValues current_state.LatchValue current_state.WaitForStart current_state.Setup 
+current_state.Setup 0 0 0 0 
+current_state.WaitForStart 0 0 1 1 
+current_state.LatchValue 0 1 0 1 
+current_state.DisplayValues 1 0 0 1 

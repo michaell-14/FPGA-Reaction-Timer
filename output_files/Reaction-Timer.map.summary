@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Fri Dec  6 03:41:59 2024
+Analysis & Synthesis Status : Successful - Fri Dec  6 13:08:15 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : Reaction-Timer
-Top-level Entity Name : SegDecoder
+Top-level Entity Name : TopTestGame
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 0
-Total pins : 11
+Total registers : 49
+Total pins : 62
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0
