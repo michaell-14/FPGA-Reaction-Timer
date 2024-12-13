@@ -1,12 +1,12 @@
-Fitter Status : Successful - Fri Dec  6 20:11:42 2024
+Fitter Status : Successful - Sun Dec  8 10:31:35 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : Reaction-Timer
 Top-level Entity Name : TopTestGame
 Family : Cyclone V
 Device : 5CSXFC6D6F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 92 / 41,910 ( < 1 % )
-Total registers : 92
+Logic utilization (in ALMs) : 94 / 41,910 ( < 1 % )
+Total registers : 97
 Total pins : 62 / 499 ( 12 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 5,662,720 ( 0 % )

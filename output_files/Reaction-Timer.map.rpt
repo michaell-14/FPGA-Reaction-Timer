@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Reaction-Timer
-Fri Dec  6 20:10:24 2024
+Sun Dec  8 10:30:19 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -49,13 +49,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Dec  6 20:10:24 2024          ;
+; Analysis & Synthesis Status     ; Successful - Sun Dec  8 10:30:19 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; Reaction-Timer                                 ;
 ; Top-level Entity Name           ; TopTestGame                                    ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 86                                             ;
+; Total registers                 ; 90                                             ;
 ; Total pins                      ; 62                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
@@ -191,25 +191,25 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 92             ;
+; Estimate of Logic utilization (ALMs needed) ; 94             ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 168            ;
+; Combinational ALUT usage for logic          ; 173            ;
 ;     -- 7 input functions                    ; 1              ;
-;     -- 6 input functions                    ; 13             ;
-;     -- 5 input functions                    ; 36             ;
-;     -- 4 input functions                    ; 40             ;
-;     -- <=3 input functions                  ; 78             ;
+;     -- 6 input functions                    ; 11             ;
+;     -- 5 input functions                    ; 37             ;
+;     -- 4 input functions                    ; 43             ;
+;     -- <=3 input functions                  ; 81             ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 86             ;
+; Dedicated logic registers                   ; 90             ;
 ;                                             ;                ;
 ; I/O pins                                    ; 62             ;
 ;                                             ;                ;
 ; Total DSP Blocks                            ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 86             ;
-; Total fan-out                               ; 960            ;
-; Average fan-out                             ; 2.54           ;
+; Maximum fan-out                             ; 90             ;
+; Total fan-out                               ; 976            ;
+; Average fan-out                             ; 2.52           ;
 +---------------------------------------------+----------------+
 
 
@@ -218,14 +218,14 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                      ; Entity Name   ; Library Name ;
 +------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------+---------------+--------------+
-; |TopTestGame                 ; 168 (0)             ; 86 (0)                    ; 0                 ; 0          ; 62   ; 0            ; |TopTestGame                                             ; TopTestGame   ; work         ;
+; |TopTestGame                 ; 173 (0)             ; 90 (0)                    ; 0                 ; 0          ; 62   ; 0            ; |TopTestGame                                             ; TopTestGame   ; work         ;
 ;    |FSM_GameLogic:fsm_inst|  ; 116 (81)            ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|FSM_GameLogic:fsm_inst                      ; FSM_GameLogic ; work         ;
 ;       |SegDecoder:HEX0_inst| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|FSM_GameLogic:fsm_inst|SegDecoder:HEX0_inst ; SegDecoder    ; work         ;
 ;       |SegDecoder:HEX2_inst| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|FSM_GameLogic:fsm_inst|SegDecoder:HEX2_inst ; SegDecoder    ; work         ;
 ;       |SegDecoder:HEX3_inst| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|FSM_GameLogic:fsm_inst|SegDecoder:HEX3_inst ; SegDecoder    ; work         ;
 ;       |SegDecoder:HEX4_inst| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|FSM_GameLogic:fsm_inst|SegDecoder:HEX4_inst ; SegDecoder    ; work         ;
 ;       |SegDecoder:HEX5_inst| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|FSM_GameLogic:fsm_inst|SegDecoder:HEX5_inst ; SegDecoder    ; work         ;
-;    |PreScale:prescaler|      ; 39 (39)             ; 34 (34)                   ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|PreScale:prescaler                          ; PreScale      ; work         ;
+;    |PreScale:prescaler|      ; 44 (44)             ; 38 (38)                   ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|PreScale:prescaler                          ; PreScale      ; work         ;
 ;    |RandGen:random_gen|      ; 13 (13)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |TopTestGame|RandGen:random_gen                          ; RandGen       ; work         ;
 +------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -262,13 +262,14 @@ Encoding Type:  One-Hot
 +----------------------------------------+----------------------------------------+
 ; Register name                          ; Reason for Removal                     ;
 +----------------------------------------+----------------------------------------+
-; PreScale:prescaler|N[7..10]            ; Stuck at GND due to stuck port data_in ;
-; PreScale:prescaler|N[16,24]            ; Merged with PreScale:prescaler|N[11]   ;
-; PreScale:prescaler|N[23]               ; Merged with PreScale:prescaler|N[17]   ;
-; PreScale:prescaler|N[1,3,5,14,19..22]  ; Merged with PreScale:prescaler|N[12]   ;
-; PreScale:prescaler|N[6]                ; Merged with PreScale:prescaler|N[15]   ;
-; PreScale:prescaler|N[2,4,13]           ; Merged with PreScale:prescaler|N[0]    ;
-; Total Number of Removed Registers = 19 ;                                        ;
+; FSM_GameLogic:fsm_inst|LEDR[0]         ; Stuck at VCC due to stuck port data_in ;
+; PreScale:prescaler|N[9,11]             ; Stuck at GND due to stuck port data_in ;
+; PreScale:prescaler|N[24]               ; Merged with PreScale:prescaler|N[16]   ;
+; PreScale:prescaler|N[5,6,15,21]        ; Merged with PreScale:prescaler|N[14]   ;
+; PreScale:prescaler|N[1..4,22,23]       ; Merged with PreScale:prescaler|N[0]    ;
+; PreScale:prescaler|N[20]               ; Merged with PreScale:prescaler|N[13]   ;
+; PreScale:prescaler|N[19]               ; Merged with PreScale:prescaler|N[17]   ;
+; Total Number of Removed Registers = 16 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
@@ -277,12 +278,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 86    ;
+; Total registers                              ; 90    ;
 ; Number of registers using Synchronous Clear  ; 25    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 48    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 21    ;
+; Number of registers using Clock Enable       ; 25    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -292,11 +293,12 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
+; PreScale:prescaler|N[12]               ; 1       ;
+; PreScale:prescaler|N[13]               ; 1       ;
 ; PreScale:prescaler|N[0]                ; 2       ;
-; PreScale:prescaler|N[12]               ; 2       ;
-; PreScale:prescaler|N[15]               ; 2       ;
+; PreScale:prescaler|N[14]               ; 1       ;
 ; PreScale:prescaler|N[17]               ; 1       ;
-; Total number of inverted registers = 4 ;         ;
+; Total number of inverted registers = 5 ;         ;
 +----------------------------------------+---------+
 
 
@@ -327,28 +329,28 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 86                          ;
+; arriav_ff             ; 90                          ;
 ;     CLR               ; 40                          ;
-;     ENA               ; 13                          ;
+;     ENA               ; 17                          ;
 ;     ENA CLR           ; 8                           ;
 ;     SCLR              ; 25                          ;
-; arriav_lcell_comb     ; 174                         ;
+; arriav_lcell_comb     ; 180                         ;
 ;     arith             ; 57                          ;
 ;         1 data inputs ; 57                          ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 116                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 5                           ;
-;         2 data inputs ; 9                           ;
-;         3 data inputs ; 12                          ;
-;         4 data inputs ; 40                          ;
-;         5 data inputs ; 36                          ;
-;         6 data inputs ; 13                          ;
+;     normal            ; 122                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 10                          ;
+;         4 data inputs ; 43                          ;
+;         5 data inputs ; 37                          ;
+;         6 data inputs ; 11                          ;
 ; boundary_port         ; 62                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.10                        ;
-; Average LUT depth     ; 3.03                        ;
+; Average LUT depth     ; 3.10                        ;
 +-----------------------+-----------------------------+
 
 
@@ -367,16 +369,16 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Fri Dec  6 20:10:17 2024
+    Info: Processing started: Sun Dec  8 10:30:11 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Reaction-Timer -c Reaction-Timer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file debounce.vhd
-    Info (12022): Found design unit 1: Debounce-Behavioral File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/Debounce.vhd Line: 11
-    Info (12023): Found entity 1: Debounce File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/Debounce.vhd Line: 4
+    Info (12022): Found design unit 1: Debounce-Behavioral File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/Debounce.vhd Line: 13
+    Info (12023): Found entity 1: Debounce File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/Debounce.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file prescale.vhd
-    Info (12022): Found design unit 1: PreScale-PreScaling File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/PreScale.vhd Line: 15
-    Info (12023): Found entity 1: PreScale File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/PreScale.vhd Line: 6
+    Info (12022): Found design unit 1: PreScale-PreScaling File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/PreScale.vhd Line: 18
+    Info (12023): Found entity 1: PreScale File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/PreScale.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file randgen.vhd
     Info (12022): Found design unit 1: RandGen-Behavioral File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 14
     Info (12023): Found entity 1: RandGen File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 5
@@ -386,31 +388,30 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
     Info (12023): Found entity 1: SegDecoder File: C:/Users/micha/OneDrive/Documents/GitHub/ENSC-252/lab3/SegDecoder.vhd Line: 6
 Info (12021): Found 0 design units, including 0 entities, in source file toptest.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file toptestgame.vhd
-    Info (12022): Found design unit 1: TopTestGame-Behavioral File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 21
-    Info (12023): Found entity 1: TopTestGame File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 5
+    Info (12022): Found design unit 1: TopTestGame-Behavioral File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 23
+    Info (12023): Found entity 1: TopTestGame File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file fsm_gamelogic.vhd
-    Info (12022): Found design unit 1: FSM_GameLogic-Behavioral File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 28
-    Info (12023): Found entity 1: FSM_GameLogic File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 5
+    Info (12022): Found design unit 1: FSM_GameLogic-Behavioral File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 34
+    Info (12023): Found entity 1: FSM_GameLogic File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 7
 Info (12021): Found 0 design units, including 0 entities, in source file notes.vhd
 Info (12127): Elaborating entity "TopTestGame" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at TopTestGame.vhd(17): used implicit default value for signal "LEDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 17
-Warning (10036): Verilog HDL or VHDL warning at TopTestGame.vhd(31): object "reset_turn" assigned a value but never read File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 31
-Info (12128): Elaborating entity "PreScale" for hierarchy "PreScale:prescaler" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 102
-Info (12128): Elaborating entity "RandGen" for hierarchy "RandGen:random_gen" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 111
+Info (12128): Elaborating entity "PreScale" for hierarchy "PreScale:prescaler" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 172
+Info (12128): Elaborating entity "RandGen" for hierarchy "RandGen:random_gen" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 182
 Warning (10492): VHDL Process Statement warning at RandGen.vhd(21): signal "init_seed" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 21
-Info (12128): Elaborating entity "FSM_GameLogic" for hierarchy "FSM_GameLogic:fsm_inst" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 120
-Warning (10492): VHDL Process Statement warning at FSM_GameLogic.vhd(60): signal "FF_clk" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 60
-Info (12128): Elaborating entity "SegDecoder" for hierarchy "FSM_GameLogic:fsm_inst|SegDecoder:HEX3_inst" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 97
-Warning (12161): Node "FSM_GameLogic:fsm_inst|win[1]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 18
-Warning (12161): Node "FSM_GameLogic:fsm_inst|win[0]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 18
-Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_B_p2[3]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 15
-Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_B_p2[2]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 15
-Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_B_p2[1]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 15
-Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_B_p2[0]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 15
-Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_A_p2[3]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 14
-Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_A_p2[2]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 14
-Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_A_p2[1]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 14
-Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_A_p2[0]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 14
+Info (12128): Elaborating entity "FSM_GameLogic" for hierarchy "FSM_GameLogic:fsm_inst" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 191
+Warning (10492): VHDL Process Statement warning at FSM_GameLogic.vhd(67): signal "FF_clk" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 67
+Warning (10873): Using initial value X (don't care) for net "LEDR[3..1]" at FSM_GameLogic.vhd(29) File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 29
+Info (12128): Elaborating entity "SegDecoder" for hierarchy "FSM_GameLogic:fsm_inst|SegDecoder:HEX3_inst" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 105
+Warning (12161): Node "FSM_GameLogic:fsm_inst|win[1]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 23
+Warning (12161): Node "FSM_GameLogic:fsm_inst|win[0]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 23
+Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_B_p2[3]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 19
+Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_B_p2[2]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 19
+Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_B_p2[1]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 19
+Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_B_p2[0]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 19
+Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_A_p2[3]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 18
+Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_A_p2[2]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 18
+Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_A_p2[1]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 18
+Warning (12161): Node "FSM_GameLogic:fsm_inst|latched_clk_A_p2[0]" is stuck at GND because node is in wire loop and does not have a source File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/FSM_GameLogic.vhd Line: 18
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
     Warning (13310): Register "RandGen:random_gen|lfsr[0]" is converted into an equivalent circuit using register "RandGen:random_gen|lfsr[0]~_emulated" and latch "RandGen:random_gen|lfsr[0]~1" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 19
@@ -418,10 +419,10 @@ Warning (13004): Presettable and clearable registers converted to equivalent cir
     Warning (13310): Register "RandGen:random_gen|lfsr[2]" is converted into an equivalent circuit using register "RandGen:random_gen|lfsr[2]~_emulated" and latch "RandGen:random_gen|lfsr[2]~9" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 19
     Warning (13310): Register "RandGen:random_gen|lfsr[3]" is converted into an equivalent circuit using register "RandGen:random_gen|lfsr[3]~_emulated" and latch "RandGen:random_gen|lfsr[3]~13" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/RandGen.vhd Line: 19
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 17
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 17
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 17
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 17
+    Warning (13410): Pin "LEDR[0]" is stuck at VCC File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 19
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 19
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 19
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 19
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 24 assignments for entity "DE10_Standard" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE10_Standard -section_id Top was ignored
@@ -475,20 +476,19 @@ Warning (20013): Ignored 24 assignments for entity "de10" -- entity does not exi
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity de10 -section_id Top was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 5 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 9
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 16
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 16
-Info (21057): Implemented 247 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 11
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 11
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 18
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/micha/OneDrive/Documents/GitHub/FPGA-Reaction-Timer/TopTestGame.vhd Line: 18
+Info (21057): Implemented 258 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 16 input pins
     Info (21059): Implemented 46 output pins
-    Info (21061): Implemented 185 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 82 warnings
-    Info: Peak virtual memory: 4917 megabytes
-    Info: Processing ended: Fri Dec  6 20:10:24 2024
-    Info: Elapsed time: 00:00:07
+    Info (21061): Implemented 196 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 80 warnings
+    Info: Peak virtual memory: 4908 megabytes
+    Info: Processing ended: Sun Dec  8 10:30:19 2024
+    Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:08
 
 
